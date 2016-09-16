@@ -1,6 +1,7 @@
 The .xml contains the following rules: <br>
 <br>
-__Registry Persistence : Monitors for common keys used for persistence.<br>
+# __Registry Persistence : <br>
+Monitors for common keys used for persistence.<br>
 __Program downloaded : Triggers on a specific program anywhere on the system being written to disk, deleted, or renamed.<br>
 __New Service Created : Triggers on any new service being created.<br>
 __Track a User's Actions : Triggers on a specific user executing, renaming, writing, deleting, reading, or creating a file. This a way to track a user's movement in using HIPs. This is a good rule to apply to privileged accounts.<br>
