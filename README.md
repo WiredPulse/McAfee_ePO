@@ -1,3 +1,3 @@
 # McAfee_ePO
 
-A series of custom dashboards and HIPs rules.
+A series of custom dashboards, queries, and HIPs rules.
