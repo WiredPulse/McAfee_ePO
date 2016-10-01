@@ -1,0 +1,114 @@
+<dashboard id="1">
+  <name>HIPS Top Hits</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>2</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>HOST IPS: Top 10 IPS Events by Target (90 Days)</name>
+        <description>Displays the top 10 systems with the most IPS events within the last 90 days</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.os%3AEPOLeafNode.NodeName%3AEPOEvents.TargetIPV6%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName%3AEPOEvents.SourceIPV6&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.requied.sexp=&amp;orion.condition.sexp=%28+where+%28+and+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+or+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+eq+EPOEvents.Analyzer+%22ENTERCPT_6000%22+%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=EPOEvents.ThreatActionTaken&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>3</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>HOST IPS: Top 10 NIPS By Source IP (90 Days)</name>
+        <description>Displays the top 10 network intrusion events by source IP addresses for the past three months.</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.os%3AEPOLeafNode.NodeName%3AEPOEvents.SourceIPV4%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetIPV4&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOEvents.TargetIPV4%3AEPOLeafNode.os%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity%3AEPOEvents.SourceIPV4</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+or+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+eq+EPOEvents.Analyzer+%22ENTERCPT_6000%22+%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=EPOEvents.ThreatActionTaken&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>6</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="6">
+        <dictionary id="7"/>
+        <name>HOST IPS: Top 10 NIPS By Target IP (90 Days)</name>
+        <description>Displays the top 10 network intrusion events by source IP addresses for the past three months.</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.os%3AEPOLeafNode.NodeName%3AEPOEvents.TargetIPV4%3AEPOEvents.ThreatSeverity%3AEPOEvents.ThreatName%3AEPOEvents.SourceIPV4&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOEvents.TargetIPV4%3AEPOLeafNode.os%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity%3AEPOEvents.SourceIPV4</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+or+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+eq+EPOEvents.Analyzer+%22ENTERCPT_6000%22+%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=EPOEvents.ThreatActionTaken&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>4</uid>
+    <width>1</width>
+    <height>2</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="8">
+        <dictionary id="9"/>
+        <name>HOST IPS: Top 10 Triggered Signatures (90 Days)</name>
+        <description>Displays the top 10 most triggered IPS signatures with the last 3 months.</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+or+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+eq+EPOEvents.Analyzer+%22ENTERCPT_6000%22+%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_SigNameXlate.SignatureName&amp;pie.count.title=EPOEvents&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=10&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>8</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="10">
+        <dictionary id="11"/>
+        <name>HOST IPS: Top 10 IPS Events by Source (90 Days)</name>
+        <description>Displays the top 10 systems with the most IPS events within the last 90 days</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.os%3AEPOLeafNode.NodeName%3AEPOEvents.SourceIPV6%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetIPV6%3AEPOEvents.TargetProcessName&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.requied.sexp=&amp;orion.condition.sexp=%28+where+%28+and+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+or+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+eq+EPOEvents.Analyzer+%22ENTERCPT_6000%22+%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=EPOEvents.ThreatActionTaken&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

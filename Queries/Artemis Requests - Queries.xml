@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>ARTEMIS REQUESTS</name>
+    <description>TREND Report show all Artemis Detections in the last 30 Days</description>
+    <target>EPOEvents</target>
+    <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.Analyzer%3AEPOEvents.TargetHostName%3AEPOEvents.TargetIPV4%3AEPOEvents.ThreatCategory%3AEPOEvents.ThreatEventID%3AEPOEvents.ThreatSeverity%3AEPOEvents.ThreatName&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.Analyzer%3AEPOEvents.TargetHostName%3AEPOEvents.TargetIPV4%3AEPOEvents.ThreatCategory%3AEPOEvents.ThreatEventID%3AEPOEvents.ThreatSeverity%3AEPOEvents.ThreatName</table-uri>
+    <condition-uri>query:condition?orion.requied.sexp=%28+where+%28+beforeNow+EPOEvents.DetectedUTC+%29+%29&amp;orion.condition.sexp=%28+where+%28+and+%28+contains+EPOEvents.Analyzer+%22VIRUS%22+%29+%28+startsWith+EPOEvents.ThreatName+%22Artemis%22+%29+%29+%29</condition-uri>
+    <summary-uri>query:summary?orion.query.type=line.line&amp;orion.sum.query=true&amp;line.title=EPOEvents.DetectedUTC&amp;orion.sum.group.by=EPOEvents.DetectedUTC&amp;orion.sum.time.cols=true&amp;orion.sum.time.unit=day&amp;orion.sum.order=newest&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>

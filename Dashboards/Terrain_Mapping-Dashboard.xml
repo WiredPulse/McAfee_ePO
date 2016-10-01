@@ -1,0 +1,202 @@
+<dashboard id="1">
+  <name>Terrain Mapping</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>17</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>Users Logged on</name>
+        <description></description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=EPOComputerProperties.UserName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>7</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>System Names</name>
+        <description></description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?orion.query.type=bar.bar&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOComputerProperties.ComputerName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=200&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>5</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="6">
+        <dictionary id="7"/>
+        <name>IP address</name>
+        <description></description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=EPOComputerProperties.IPV6&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>19</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>3</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="8">
+        <dictionary id="9"/>
+        <name>Domain Names</name>
+        <description></description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=EPOComputerProperties.DomainName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>3</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="10">
+        <dictionary id="11"/>
+        <name>Operating System Type</name>
+        <description></description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=EPOComputerProperties.OSType&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>21</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="12">
+        <dictionary id="13"/>
+        <name>Rogue System Status</name>
+        <description></description>
+        <target>RSDDetectedSystems</target>
+        <table-uri>query:table?orion.table.columns=RSDDetectedSystems.NetbiosName%3ARSDDetectedSystems.DnsName%3ARSDDetectedSystems.Users%3ARSDDetectedSystems.Domain&amp;orion.table.order.by=RSDDetectedSystems.NetbiosName%3ARSDDetectedSystems.DnsName%3ARSDDetectedSystems.Users%3ARSDDetectedSystems.Domain&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?orion.query.type=bar.stackedbar&amp;orion.sum.query=true&amp;orion.sum.group.by=RSDDetectedSystems.Rogue%3ARSDDetectedSystems.NetbiosName&amp;orion.sum.order=desc%3Adesc&amp;orion.sum.limit.count=100%3A100&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>15</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="14">
+        <dictionary id="15"/>
+        <name>Detected Systems</name>
+        <description></description>
+        <target>RSDDetectedSystems</target>
+        <table-uri>query:table?orion.table.columns=RSDDetectedSystems.NetbiosName%3ARSDDetectedSystems.DnsName%3ARSDDetectedSystems.Users%3ARSDDetectedSystems.Domain&amp;orion.table.order.by=RSDDetectedSystems.NetbiosName%3ARSDDetectedSystems.DnsName%3ARSDDetectedSystems.Users%3ARSDDetectedSystems.Domain&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=RSDDetectedSystems.NetbiosName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>18</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>3</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="16">
+        <dictionary id="17"/>
+        <name>Are there any new detections?</name>
+        <description></description>
+        <target>RSDInterfaces</target>
+        <table-uri>query:table?orion.table.columns=RSDInterfaces.MAC%3ARSDInterfaces.IPV6%3ARSDInterfaces.LastDetectedTime%3ARSDInterfaces.DetectedSourceName%3ARSDInterfaces.OrgName&amp;orion.table.order.by=RSDInterfaces.MAC%3ARSDInterfaces.IPV6%3ARSDInterfaces.LastDetectedTime%3ARSDInterfaces.DetectedSourceName%3ARSDInterfaces.OrgName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=RSDDetectedSystems.NewDetection&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>23</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>4</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="18">
+        <dictionary id="19"/>
+        <name>Product Protection Summary</name>
+        <description>Product Protection Summary Report by Product for managed Workstations.</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.NodeName%3AEPOComputerProperties.OSType%3AEPOComputerProperties.OSPlatform%3AEPOComputerProperties.OSServicePackVer%3AERP_View_EPOProductProperties.ProductCode%3AERP_View_EPOProductProperties.ProductVersion%3AERP_View_EPOProductProperties.DATVer%3AEPOLeafNode.LastUpdate&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOComputerProperties.OSType%3AEPOComputerProperties.OSPlatform%3AEPOComputerProperties.OSServicePackVer%3AERP_View_EPOProductProperties.ProductCode%3AERP_View_EPOProductProperties.ProductVersion%3AERP_View_EPOProductProperties.DATVer%3AEPOLeafNode.LastUpdate</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22EPOAGENT%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22ePOAgent%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22ASSETS__%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22POLICYAU%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22DATALOSS%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22ENTERCPT%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22HOSTIPS_%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22S_SEP_%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22S_SAV_%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22VIRUSCAN%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22VIREXUB_%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22VSEMAS%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22DLPAGENT%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22SOLIDCOR%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22S_USAF%22+%29+%28+startsWith+ERP_View_EPOProductProperties.ProductCode+%22SITEADV_%22+%29+%29+%28+newerThan+EPOLeafNode.LastUpdate+2592000000++%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=bar.groupedbar&amp;orion.sum.query=true&amp;orion.sum.group.by=ERP_View_EPOProductProperties.ProductCode%3AERP_View_EPOProductProperties.ProductVersion&amp;orion.sum.order=az%3Aaz&amp;orion.sum.limit.count=100%3A100&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

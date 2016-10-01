@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>Hourly Threats</name>
+    <description></description>
+    <target>EPOEvents</target>
+    <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order=az</table-uri>
+    <condition-uri>query:condition?orion.requied.sexp=%28+where+%28+newerThan+EPOEvents.DetectedUTC+86400000++%29+%29&amp;orion.condition.sexp=%28+where+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22av%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22ops%22+%29+%29+%29</condition-uri>
+    <summary-uri>query:summary?orion.query.type=line.line&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.DetectedUTC&amp;orion.sum.time.cols=true&amp;orion.sum.time.unit=hour&amp;orion.sum.order=oldest&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>

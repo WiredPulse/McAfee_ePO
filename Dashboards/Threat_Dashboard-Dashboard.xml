@@ -1,0 +1,114 @@
+<dashboard id="1">
+  <name>Threat Dashboard</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>2</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>30</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>Detections by action &amp; file path in the Last Day</name>
+        <description>Displays a pie chart of detections within the last 24 hours organized by detecting product.</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.ThreatActionTaken%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetFileName%3AEPOEvents.AnalyzerName&amp;orion.table.order.by=EPOEvents.DetectedUTC&amp;orion.table.order=desc</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+86400000++%29+%28+threatcategory_not_belongs+EPOEvents.ThreatCategory+%22ops%22+%29+%28+lt+EPOEvents.ThreatEventID+20000++%29+%28+not_isBlank+EPOEvents.TargetFileName+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.sum.query=true&amp;orion.query.type=summary.multigroup&amp;orion.sum.group.by=EPOComputerProperties.ComputerName%3AEPOEvents.ThreatActionTaken%3AEPOEvents.TargetFileName&amp;orion.sum.order=desc%3Adesc%3Adesc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>4</uid>
+    <width>1</width>
+    <height>2</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>30</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>Threat Events by Analyzer Method</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken%3AEPOEvents.ThreatCategory%3AEPOEvents.ThreatEventID%3AEPOEvents.ThreatSeverity&amp;orion.table.order=asc&amp;orion.table.order.by=EPOEvents.DetectedUTC</table-uri>
+        <condition-uri>query:condition?orion.requied.sexp=&amp;orion.condition.sexp=%28+where+%28+and+%28+and+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22%28EPO%29+Daily+Content+Update%22+%29+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22poeppe%22+%29+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22AutoUpdate%22+%29+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22Full+Scan%22+%29+%29+%28+and+%28+ne+EPOEvents.ThreatEventID+1035++%29+%28+ne+EPOEvents.ThreatEventID+1038++%29+%28+ne+EPOEvents.ThreatEventID+1202++%29+%28+ne+EPOEvents.ThreatEventID+1203++%29+%28+ne+EPOEvents.ThreatEventID+1088++%29+%28+lt+EPOEvents.ThreatEventID+20000++%29+%29+%28+threatcategory_not_belongs+EPOEvents.ThreatCategory+%22ops%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.sum.query=true&amp;orion.query.type=summary.multigroup&amp;orion.sum.group.by=EPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken&amp;orion.sum.order=desc%3Adesc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>3</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>0</y>
+    <refreshInterval>30</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="6">
+        <dictionary id="7"/>
+        <name>Threat Events by Category</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken%3AEPOEvents.ThreatCategory%3AEPOEvents.ThreatEventID%3AEPOEvents.ThreatSeverity%3AEPOEvents.AnalyzerName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken%3AEPOEvents.ThreatCategory%3AEPOEvents.ThreatEventID%3AEPOEvents.ThreatSeverity&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+and+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22%28EPO%29+Daily+Content+Update%22+%29+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22poeppe%22+%29+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22AutoUpdate%22+%29+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22Full+Scan%22+%29+%29+%28+and+%28+ne+EPOEvents.ThreatEventID+1035++%29+%28+ne+EPOEvents.ThreatEventID+1038++%29+%28+ne+EPOEvents.ThreatEventID+1202++%29+%28+ne+EPOEvents.ThreatEventID+1203++%29+%28+ne+EPOEvents.ThreatEventID+1088++%29+%29+%28+threatcategory_not_belongs+EPOEvents.ThreatCategory+%22ops%22+%29+%28+and+%28+ne+EPOEvents.ThreatName+%22FILE_SOLIDIFIED%22+%29+%28+ne+EPOEvents.ThreatName+%22FILE_UNSOLIDIFIED%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=EPOEvents.ThreatCategory&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>5</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>1</y>
+    <refreshInterval>30</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="8">
+        <dictionary id="9"/>
+        <name>Threat Events by Detecting Product</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken%3AEPOEvents.ThreatCategory%3AEPOEvents.ThreatEventID%3AEPOEvents.ThreatSeverity%3AEPOEvents.AnalyzerName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken%3AEPOEvents.ThreatCategory%3AEPOEvents.ThreatEventID%3AEPOEvents.ThreatSeverity&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+and+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22%28EPO%29+Daily+Content+Update%22+%29+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22poeppe%22+%29+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22AutoUpdate%22+%29+%28+ne+EPOEvents.AnalyzerDetectionMethod+%22Full+Scan%22+%29+%29+%28+and+%28+ne+EPOEvents.ThreatEventID+1035++%29+%28+ne+EPOEvents.ThreatEventID+1038++%29+%28+ne+EPOEvents.ThreatEventID+1202++%29+%28+ne+EPOEvents.ThreatEventID+1203++%29+%28+ne+EPOEvents.ThreatEventID+1088++%29+%29+%28+threatcategory_not_belongs+EPOEvents.ThreatCategory+%22ops%22+%29+%28+and+%28+ne+EPOEvents.ThreatName+%22FILE_SOLIDIFIED%22+%29+%28+ne+EPOEvents.ThreatName+%22FILE_UNSOLIDIFIED%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=EPOEvents.AnalyzerName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>6</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>1</y>
+    <refreshInterval>30</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="10">
+        <dictionary id="11"/>
+        <name>05 CPT: Script Related Malware by file path</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.TargetFileName%3AEPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken%3AEPOEvents.AnalyzerDATVersion&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.TargetFileName%3AEPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken%3AEPOEvents.AnalyzerDATVersion</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+endsWith+EPOEvents.TargetFileName+%22.js%22+%29+%28+endsWith+EPOEvents.TargetFileName+%22.jar%22+%29+%28+endsWith+EPOEvents.TargetFileName+%22.vbs%22+%29+%29+%28+and+%28+ne+EPOEvents.ThreatEventID+1095++%29+%28+lt+EPOEvents.ThreatEventID+20000++%29+%28+ne+EPOEvents.ThreatEventID+1092++%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=bar.bar&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.TargetFileName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=200&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

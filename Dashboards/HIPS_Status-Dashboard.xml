@@ -1,0 +1,136 @@
+<dashboard id="1">
+  <name>HIPS Status</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>6</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>HOST IPS: Firewall Status</name>
+        <description>Displays where Firewall protection is enabled or disabled on managed systems.</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.FWStatus%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_Properties.FWStatus&amp;bool.show.criteria=false&amp;pie.count.title=EPOLeafNode&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;show.percentage=true&amp;bool.red.text=Query.Disabled&amp;bool.green.text=Query.Enabled&amp;bool.green.criteria=%28+where+%28+eq+HIP8_Properties.FWStatus+%22True%22+%29+%29&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>7</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>HOST IPS: Host IPS Status</name>
+        <description>Displays where IPS protection is enabled or disabled on managed systems.</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.HIPSStatus%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion%3AHIP8_Properties.HIPSStatus&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_Properties.HIPSStatus&amp;bool.show.criteria=false&amp;pie.count.title=Managed+Systems&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;show.percentage=true&amp;bool.red.text=Query.Disabled&amp;bool.green.text=Query.Enabled&amp;bool.green.criteria=%28+where+%28+eq+HIP8_Properties.HIPSStatus+%22True%22+%29+%29&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>11</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="6">
+        <dictionary id="7"/>
+        <name>HOST IPS: Client Versions</name>
+        <description>Displays top three client versions with a single category for all other versions.</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_Properties.CodeVersion&amp;pie.count.title=EPOLeafNode&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_Properties.CodeVersion&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.show.other=true&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>13</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="8">
+        <dictionary id="9"/>
+        <name>HOST IPS: Clients Pending Restart</name>
+        <description>Displays managed systems where Host IPS is deployed and the installer needs to restart the system.</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion%3AHIP8_Properties.RebootRequired&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion%3AHIP8_Properties.RebootRequired</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?bool.show.criteria=false&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;show.percentage=true&amp;bool.green.criteria=%28+where+%28+eq+HIP8_Properties.RebootRequired+%22false%22+%29+%29&amp;bool.green.text=Query.HIPClients&amp;bool.red.text=Query.HIPClientsPendingReboot&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>10</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="10">
+        <dictionary id="11"/>
+        <name>HOST IPS: Service Status</name>
+        <description>Displays where Host IPS is installed on managed systems and whether it is running or not.</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.ServiceRunning%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_Properties.ContentVersion&amp;bool.show.criteria=false&amp;pie.count.title=EPOLeafNode&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;show.percentage=true&amp;bool.red.text=Query.ServiceNotRunning&amp;bool.green.criteria=%28+where+%28+and+%28+eq+HIP8_Properties.ServiceRunning+%22True%22+%29+%28+newerThan+EPOLeafNode.LastUpdate+604800000++%29+%29+%29&amp;bool.green.text=Query.ServiceRunning&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>12</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="12">
+        <dictionary id="13"/>
+        <name>HOST IPS: Content Versions</name>
+        <description>Displays top three content versions with a single category for all other versions.</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_Properties.CodeVersion%3AHIP8_Properties.ContentVersion&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+startsWith+HIP8_Properties.CodeVersion+%228.%22+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_Properties.ContentVersion&amp;pie.count.title=EPOLeafNode&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_Properties.ContentVersion&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.show.other=true&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>Ports</name>
+    <description>Potentially Unwanted Programs: User-defined for Ports</description>
+    <target>EPOEvents</target>
+    <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order=az</table-uri>
+    <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+gt+EPOEvents.TargetPort+0++%29+%29</condition-uri>
+    <summary-uri>query:summary?orion.query.type=bar.bar&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.TargetPort&amp;orion.sum.order=desc&amp;orion.sum.limit.count=200&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>

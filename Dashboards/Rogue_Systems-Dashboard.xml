@@ -1,0 +1,180 @@
+<dashboard id="1">
+  <name>Rogue Systems</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>3</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>Active Sensor Response (Last 24 Hours)</name>
+        <description>Displays a boolean pie chart of active RSD Sensors that have or haven&apos;t communicated with the ePO server in the last 24 hours.</description>
+        <target>RSDSensors</target>
+        <table-uri>query:table?orion.table.columns=RSDSensors.SensorName%3ARSDSensors.Description%3ARSDSensors.LastCommunicationTime&amp;orion.table.order.by=RSDSensors.SensorName%3ARSDSensors.Description%3ARSDSensors.LastCommunicationTime&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+eq+RSDSensors.Status+1++%29+%28+newerThan+RSDDetectedSystems.LastDetectedTime+86400000++%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?bool.show.criteria=false&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;bool.green.criteria=%28+where+%28+newerThan+RSDSensors.LastCommunicationTime+86400000++%29+%29&amp;show.percentage=false&amp;bool.red.text=Non-Compliant&amp;bool.green.text=Compliant&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>4</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>Active Sensor Response (Last 7 Days)</name>
+        <description>Displays a boolean pie chart of active RSD Sensors that have or haven&apos;t communicated with the ePO server in the last 24 hours.</description>
+        <target>RSDSensors</target>
+        <table-uri>query:table?orion.table.columns=RSDSensors.SensorName%3ARSDSensors.Description%3ARSDSensors.LastCommunicationTime&amp;orion.table.order=az&amp;orion.table.order.by=RSDSensors.SensorName%3ARSDSensors.Description%3ARSDSensors.LastCommunicationTime</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+eq+RSDSensors.Status+1++%29+%28+newerThan+RSDDetectedSystems.LastDetectedTime+604800000++%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?bool.show.criteria=false&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;show.percentage=false&amp;bool.red.text=Non-Compliant&amp;bool.green.text=Compliant&amp;bool.green.criteria=%28+where+%28+newerThan+RSDSensors.LastCommunicationTime+86400000++%29+%29&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>5</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="6">
+        <dictionary id="7"/>
+        <name>Passive Sensor Response (Last 24 Hours)</name>
+        <description>Passive RSD Sensors that have or haven&apos;t communicated with the ePO server in the last 24 hours.</description>
+        <target>RSDSensors</target>
+        <table-uri>query:table?orion.table.columns=RSDSensors.SensorName%3ARSDSensors.Description%3ARSDSensors.LastCommunicationTime&amp;orion.table.order.by=RSDSensors.SensorName%3ARSDSensors.Description%3ARSDSensors.LastCommunicationTime&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+eq+RSDSensors.Status+2++%29+%28+newerThan+RSDDetectedSystems.LastDetectedTime+86400000++%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?bool.show.criteria=false&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;bool.green.criteria=%28+where+%28+newerThan+RSDSensors.LastCommunicationTime+86400000++%29+%29&amp;show.percentage=false&amp;bool.red.text=Non-Compliant&amp;bool.green.text=Compliant&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>6</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="8">
+        <dictionary id="9"/>
+        <name>Passive Sensor Response (Last 7 Days)</name>
+        <description>Passive RSD Sensors that have or haven&apos;t communicated with the ePO server in the last 24 hours.</description>
+        <target>RSDSensors</target>
+        <table-uri>query:table?orion.table.columns=RSDSensors.SensorName%3ARSDSensors.Description%3ARSDSensors.LastCommunicationTime&amp;orion.table.order.by=RSDSensors.SensorName%3ARSDSensors.Description%3ARSDSensors.LastCommunicationTime&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+eq+RSDSensors.Status+2++%29+%28+newerThan+RSDDetectedSystems.LastDetectedTime+604800000++%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?bool.show.criteria=false&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;bool.green.criteria=%28+where+%28+newerThan+RSDSensors.LastCommunicationTime+86400000++%29+%29&amp;show.percentage=false&amp;bool.red.text=Non-Compliant&amp;bool.green.text=Compliant&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>7</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>3</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="10">
+        <dictionary id="11"/>
+        <name>Rogue Systems, By Domain (Last 24 Hours)</name>
+        <description>Rogue system interfaces detected by RSD sensors in the last week, grouped by domain.</description>
+        <target>RSDInterfaces</target>
+        <table-uri>query:table?orion.table.columns=RSDDetectedSystems.NetbiosName%3ARSDInterfaces.MAC%3ARSDInterfaces.IPV6%3ARSDInterfaces.LastDetectedTime%3ARSDInterfaces.DetectedSourceName%3ARSDInterfaces.OrgName&amp;orion.table.order.by=RSDDetectedSystems.NetbiosName%3ARSDInterfaces.MAC%3ARSDInterfaces.IPV6%3ARSDInterfaces.LastDetectedTime%3ARSDInterfaces.DetectedSourceName%3ARSDInterfaces.OrgName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+RSDInterfaces.LastDetectedTime+86400000++%29+%28+eq+RSDDetectedSystems.Rogue+t+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=summary.topn&amp;topn.title=RSDDetectedSystems.Domain&amp;orion.sum.query=true&amp;orion.sum.group.by=RSDDetectedSystems.Domain&amp;orion.sum.order=desc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>9</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="12">
+        <dictionary id="13"/>
+        <name>Rogue Systems, By OS (Last 24 Hours)</name>
+        <description>Rogue system interfaces detected by RSD sensors over the last week, grouped by operating system.</description>
+        <target>RSDInterfaces</target>
+        <table-uri>query:table?orion.table.columns=RSDDetectedSystems.NetbiosName%3ARSDInterfaces.MAC%3ARSDInterfaces.IPV6%3ARSDInterfaces.LastDetectedTime%3ARSDInterfaces.DetectedSourceName%3ARSDInterfaces.OrgName&amp;orion.table.order=az&amp;orion.table.order.by=RSDDetectedSystems.NetbiosName%3ARSDInterfaces.MAC%3ARSDInterfaces.IPV6%3ARSDInterfaces.LastDetectedTime%3ARSDInterfaces.DetectedSourceName%3ARSDInterfaces.OrgName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+RSDInterfaces.LastDetectedTime+86400000++%29+%28+eq+RSDDetectedSystems.Rogue+t+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=RSDDetectedSystems.OSPlatform&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=RSDDetectedSystems.OSPlatform&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>10</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="14">
+        <dictionary id="15"/>
+        <name>Rogue Systems, By OS (Last 7 Days)</name>
+        <description>Rogue system interfaces detected by RSD sensors over the last week, grouped by operating system.</description>
+        <target>RSDInterfaces</target>
+        <table-uri>query:table?orion.table.columns=RSDDetectedSystems.NetbiosName%3ARSDInterfaces.MAC%3ARSDInterfaces.IPV6%3ARSDInterfaces.LastDetectedTime%3ARSDInterfaces.DetectedSourceName%3ARSDInterfaces.OrgName&amp;orion.table.order=az&amp;orion.table.order.by=RSDDetectedSystems.NetbiosName%3ARSDInterfaces.MAC%3ARSDInterfaces.IPV6%3ARSDInterfaces.LastDetectedTime%3ARSDInterfaces.DetectedSourceName%3ARSDInterfaces.OrgName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+RSDInterfaces.LastDetectedTime+604800000++%29+%28+eq+RSDDetectedSystems.Rogue+%221%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=RSDDetectedSystems.OSPlatform&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;orion.sum.group.by=RSDDetectedSystems.OSPlatform&amp;orion.sum.order=desc&amp;orion.show.other=false&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>11</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>3</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="16">
+        <dictionary id="17"/>
+        <name>Rogue Systems Subnet Coverage</name>
+        <description>Displays a pie chart of subnets. Subnets covered by RSD sensors are displayed in green. Subnets not covered are displayed in red.</description>
+        <target>RSDSubnets</target>
+        <table-uri>query:table?orion.table.columns=RSDSubnets.SubnetName%3ARSDSubnets.IPV6%3ARSDSubnets.IPV6mask%3ARSDSubnets.Covered&amp;orion.table.order=az&amp;orion.table.order.by=RSDSubnets.SubnetName%3ARSDSubnets.IPV6%3ARSDSubnets.IPV6mask%3ARSDSubnets.Covered</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+eq+RSDSubnets.Ignored+f+%29+%29</condition-uri>
+        <summary-uri>query:summary?bool.show.criteria=false&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;show.percentage=false&amp;bool.green.text=Covered&amp;bool.green.criteria=%28+where+%28+eq+RSDSubnets.Covered+%221%22+%29+%29&amp;bool.red.text=Uncovered&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

@@ -1,0 +1,180 @@
+<dashboard id="1">
+  <name>HIPS Triggers</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>12</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>HOST IPS: Desktop High Triggered Signatures</name>
+        <description>Displays the top 10 most triggered IPS signatures of High Severity (Critical).</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%28+eq+EPOEvents.ThreatSeverity+2++%29+%28+ne+EPOComputerProperties.OSPlatform+%22Server%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_SigNameXlate.SignatureName&amp;pie.count.title=EPOEvents&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=10&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>10</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>HOST IPS: Desktop Medium Triggered Signatures</name>
+        <description>Displays the top 10 most triggered IPS signatures of Medium Severity (Warning).</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%28+eq+EPOEvents.ThreatSeverity+4++%29+%28+ne+EPOComputerProperties.OSPlatform+%22Server%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_SigNameXlate.SignatureName&amp;pie.count.title=EPOEvents&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=10&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>11</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="6">
+        <dictionary id="7"/>
+        <name>HOST IPS: Desktop Low Triggered Signatures</name>
+        <description>Displays the top 10 most triggered IPS signatures of Low Severity (Notice).</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatName&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%28+eq+EPOEvents.ThreatSeverity+5++%29+%28+ne+EPOComputerProperties.OSPlatform+%22Server%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_SigNameXlate.SignatureName&amp;pie.count.title=EPOEvents&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=10&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>16</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="8">
+        <dictionary id="9"/>
+        <name>HOST IPS: Server High Triggered Signatures</name>
+        <description>Displays the top 10 most triggered IPS signatures of High Severity (Critical).</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%28+eq+EPOEvents.ThreatSeverity+2++%29+%28+eq+EPOComputerProperties.OSPlatform+%22Server%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_SigNameXlate.SignatureName&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>15</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="10">
+        <dictionary id="11"/>
+        <name>HOST IPS: Server Medium Triggered Signatures</name>
+        <description>Displays the top 10 most triggered IPS signatures of Medium Severity (Warning).</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%28+eq+EPOEvents.ThreatSeverity+4++%29+%28+eq+EPOComputerProperties.OSPlatform+%22Server%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_SigNameXlate.SignatureName&amp;pie.count.title=EPOEvents&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=10&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>13</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="12">
+        <dictionary id="13"/>
+        <name>HOST IPS: Server Low Triggered Signatures</name>
+        <description>Displays the top 10 most triggered IPS signatures of Low Severity (Notice).</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.ThreatName&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%28+eq+EPOEvents.ThreatSeverity+5++%29+%28+eq+EPOComputerProperties.OSPlatform+%22Server%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_SigNameXlate.SignatureName&amp;pie.count.title=EPOEvents&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=10&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>18</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>3</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="14">
+        <dictionary id="15"/>
+        <name>HOST IPS: Server Informational Triggered Signatures</name>
+        <description>Displays the top 10 most triggered IPS signatures of Informational Severity (Information).</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.ThreatName&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%28+eq+EPOEvents.ThreatSeverity+6++%29+%28+eq+EPOComputerProperties.OSPlatform+%22Server%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_SigNameXlate.SignatureName&amp;pie.count.title=EPOEvents&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=10&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>19</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>3</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="16">
+        <dictionary id="17"/>
+        <name>HOST IPS: Desktop Informational Triggered Signatures</name>
+        <description>Displays the top 10 most triggered IPS signatures of severity Informational (Information).</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatName%3AEPOEvents.ThreatSeverity&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.os%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.ThreatSeverity%3AEPOEvents.TargetProcessName</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+7776000000++%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%28+eq+EPOEvents.ThreatSeverity+6++%29+%28+ne+EPOComputerProperties.OSPlatform+%22Server%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=HIP8_SigNameXlate.SignatureName&amp;pie.count.title=EPOEvents&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=HIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=10&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

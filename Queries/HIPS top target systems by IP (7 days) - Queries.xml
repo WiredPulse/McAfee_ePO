@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>HIPS Top Target Systems by IP (7 days)</name>
+    <description>Displays the top 10 systems with the most IPS events within past 7 days.</description>
+    <target>EPOEvents</target>
+    <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceUserName%3AEPOEvents.SourceProcessName%3AHIP8_EventInfo.AppHash%3AHIP8_EventInfo.AppSigner&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceUserName%3AEPOEvents.SourceProcessName%3AHIP8_EventInfo.AppHash%3AHIP8_EventInfo.AppSigner</table-uri>
+    <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+or+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip%22+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%29+%28+newerThan+EPOEvents.DetectedUTC+604800000++%29+%28+eq+EPOEvents.Analyzer+%22HOSTIPS_8000%22+%29+%28+ne+EPOEvents.ThreatEventID+18002++%29+%29+%29</condition-uri>
+    <summary-uri>query:summary?pie.slice.title=EPOLeafNode.NodeName&amp;pie.count.title=EPOEvents&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=EPOEvents.AnalyzerIPV6&amp;orion.sum.order=desc&amp;orion.sum.limit.count=10&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>

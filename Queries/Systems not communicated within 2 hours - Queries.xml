@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>Systems not communicated within 2 hours</name>
+    <description>Status of McAfee Agents installed that have not communicated with the ePo in the last 2 hours</description>
+    <target>EPOLeafNode</target>
+    <table-uri>query:table?orion.table.columns=EPOLeafNode.NodeName%3AEPOLeafNode.AgentGUID%3AEPOComputerProperties.OSType%3AEPOComputerProperties.IPV6%3AEPOComputerProperties.UserName%3AEPOLeafNode.LastUpdate&amp;orion.table.order=az&amp;orion.table.order.by=EPOLeafNode.NodeName%3AEPOLeafNode.AgentGUID%3AEPOComputerProperties.OSType%3AEPOComputerProperties.IPV6%3AEPOComputerProperties.UserName%3AEPOLeafNode.LastUpdate</table-uri>
+    <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+olderThan+EPOLeafNode.LastUpdate+3600000++%29+%29</condition-uri>
+    <summary-uri>query:summary?bool.show.criteria=true&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;bool.red.text=Lost+communication&amp;bool.green.text=Active&amp;show.percentage=false&amp;bool.green.criteria=%28+where+%28+newerThan+RSDDetectedSystems.LastAgentCommunication+3600000++%29+%29&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>

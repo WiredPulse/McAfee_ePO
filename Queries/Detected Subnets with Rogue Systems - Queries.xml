@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>Detected Subnets with Rogue Systems</name>
+    <description></description>
+    <target>RSDSubnets</target>
+    <table-uri>query:table?orion.table.columns=RSDSubnets.SubnetName%3ARSDSubnets.IPV6%3ARSDSubnets.Covered%3ARSDSubnets.ContainsRogue&amp;orion.table.order=az&amp;orion.table.order.by=RSDSubnets.SubnetName%3ARSDSubnets.IPV6%3ARSDSubnets.Covered%3ARSDSubnets.ContainsRogue</table-uri>
+    <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+    <summary-uri>query:summary?orion.query.type=bar.bar&amp;orion.sum.query=true&amp;orion.sum.group.by=RSDSubnets.IPV6&amp;orion.sum.order=desc&amp;orion.sum.limit.count=200&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>

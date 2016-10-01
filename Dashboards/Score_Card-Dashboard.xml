@@ -1,0 +1,136 @@
+<dashboard id="1">
+  <name>Score Card</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>4</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>Weekly Threat Trends</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.requied.sexp=%28+where+%28+newerThan+EPOEvents.DetectedUTC+604800000++%29+%29&amp;orion.condition.sexp=%28+where+%28+and+%28+and+%28+not_isBlank+EPOEvents.ThreatName+%29+%28+notContains+EPOEvents.ThreatName+%22scan_timeout%22+%29+%28+notContains+EPOEvents.ThreatName+%22_%22+%29+%28+notContains+EPOEvents.ThreatName+%22suspicious%22+%29+%29+%28+contains+EPOEvents.AnalyzerName+%22virus%22+%29+%28+or+%28+eq+EPOEvents.ThreatType+%22virus%22+%29+%28+eq+EPOEvents.ThreatType+%22trojan%22+%29+%28+eq+EPOEvents.ThreatType+%22app_spyware%22+%29+%28+eq+EPOEvents.ThreatType+%22app_rootkit%22+%29+%28+eq+EPOEvents.ThreatType+%22app_remoteadmin%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pwcracker%22+%29+%28+eq+EPOEvents.ThreatType+%22app_P2P%22+%29+%28+eq+EPOEvents.ThreatType+%22app%22+%29+%28+eq+EPOEvents.ThreatType+%22app_keylogger%22+%29+%28+eq+EPOEvents.ThreatType+%22joke%22+%29+%28+eq+EPOEvents.ThreatType+%22app_IM%22+%29+%28+eq+EPOEvents.ThreatType+%22app_dialer%22+%29+%28+eq+EPOEvents.ThreatType+%22app_puocookie%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pua%22+%29+%28+eq+EPOEvents.ThreatType+%22app_adware%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=line.multiline&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.ThreatType%3AEPOEvents.DetectedUTC&amp;orion.sum.order=az%3Aoldest&amp;orion.sum.limit.count=50&amp;orion.sum.time.cols=%3Atrue&amp;orion.sum.time.unit=%3Aday&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>5</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>Weekly Trends not deleted</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.requied.sexp=%28+where+%28+newerThan+EPOEvents.DetectedUTC+604800000++%29+%29&amp;orion.condition.sexp=%28+where+%28+and+%28+and+%28+not_isBlank+EPOEvents.ThreatName+%29+%28+notContains+EPOEvents.ThreatName+%22scan_timeout%22+%29+%28+notContains+EPOEvents.ThreatName+%22_%22+%29+%28+notContains+EPOEvents.ThreatName+%22suspicious%22+%29+%29+%28+contains+EPOEvents.AnalyzerName+%22virus%22+%29+%28+or+%28+eq+EPOEvents.ThreatType+%22virus%22+%29+%28+eq+EPOEvents.ThreatType+%22trojan%22+%29+%28+eq+EPOEvents.ThreatType+%22app_spyware%22+%29+%28+eq+EPOEvents.ThreatType+%22app_rootkit%22+%29+%28+eq+EPOEvents.ThreatType+%22app_remoteadmin%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pwcracker%22+%29+%28+eq+EPOEvents.ThreatType+%22app_P2P%22+%29+%28+eq+EPOEvents.ThreatType+%22app%22+%29+%28+eq+EPOEvents.ThreatType+%22app_keylogger%22+%29+%28+eq+EPOEvents.ThreatType+%22joke%22+%29+%28+eq+EPOEvents.ThreatType+%22app_IM%22+%29+%28+eq+EPOEvents.ThreatType+%22app_dialer%22+%29+%28+eq+EPOEvents.ThreatType+%22app_puocookie%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pua%22+%29+%28+eq+EPOEvents.ThreatType+%22app_adware%22+%29+%29+%28+eq+EPOEvents.ThreatHandled+f+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=line.multiline&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.ThreatType%3AEPOEvents.DetectedUTC&amp;orion.sum.order=az%3Aoldest&amp;orion.sum.limit.count=50&amp;orion.sum.time.cols=%3Atrue&amp;orion.sum.time.unit=%3Aday&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>2</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>1</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="6">
+        <dictionary id="7"/>
+        <name>Monthly Threat Trends</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.requied.sexp=%28+where+%28+newerThan+EPOEvents.DetectedUTC+2592000000++%29+%29&amp;orion.condition.sexp=%28+where+%28+and+%28+and+%28+not_isBlank+EPOEvents.ThreatName+%29+%28+notContains+EPOEvents.ThreatName+%22scan_timeout%22+%29+%28+notContains+EPOEvents.ThreatName+%22_%22+%29+%28+notContains+EPOEvents.ThreatName+%22suspicious%22+%29+%29+%28+contains+EPOEvents.AnalyzerName+%22virus%22+%29+%28+or+%28+eq+EPOEvents.ThreatType+%22virus%22+%29+%28+eq+EPOEvents.ThreatType+%22trojan%22+%29+%28+eq+EPOEvents.ThreatType+%22app_spyware%22+%29+%28+eq+EPOEvents.ThreatType+%22app_rootkit%22+%29+%28+eq+EPOEvents.ThreatType+%22app_remoteadmin%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pwcracker%22+%29+%28+eq+EPOEvents.ThreatType+%22app_P2P%22+%29+%28+eq+EPOEvents.ThreatType+%22app%22+%29+%28+eq+EPOEvents.ThreatType+%22app_keylogger%22+%29+%28+eq+EPOEvents.ThreatType+%22joke%22+%29+%28+eq+EPOEvents.ThreatType+%22app_IM%22+%29+%28+eq+EPOEvents.ThreatType+%22app_dialer%22+%29+%28+eq+EPOEvents.ThreatType+%22app_puocookie%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pua%22+%29+%28+eq+EPOEvents.ThreatType+%22app_adware%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=line.multiline&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.ThreatType%3AEPOEvents.DetectedUTC&amp;orion.sum.order=az%3Aoldest&amp;orion.sum.limit.count=50&amp;orion.sum.time.cols=%3Atrue&amp;orion.sum.time.unit=%3Aday&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>3</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>1</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="8">
+        <dictionary id="9"/>
+        <name>Monthly Trends not deleted</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.requied.sexp=%28+where+%28+newerThan+EPOEvents.DetectedUTC+2592000000++%29+%29&amp;orion.condition.sexp=%28+where+%28+and+%28+and+%28+not_isBlank+EPOEvents.ThreatName+%29+%28+notContains+EPOEvents.ThreatName+%22scan_timeout%22+%29+%28+notContains+EPOEvents.ThreatName+%22_%22+%29+%28+notContains+EPOEvents.ThreatName+%22suspicious%22+%29+%29+%28+contains+EPOEvents.AnalyzerName+%22virus%22+%29+%28+or+%28+eq+EPOEvents.ThreatType+%22virus%22+%29+%28+eq+EPOEvents.ThreatType+%22trojan%22+%29+%28+eq+EPOEvents.ThreatType+%22app_spyware%22+%29+%28+eq+EPOEvents.ThreatType+%22app_rootkit%22+%29+%28+eq+EPOEvents.ThreatType+%22app_remoteadmin%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pwcracker%22+%29+%28+eq+EPOEvents.ThreatType+%22app_P2P%22+%29+%28+eq+EPOEvents.ThreatType+%22app%22+%29+%28+eq+EPOEvents.ThreatType+%22app_keylogger%22+%29+%28+eq+EPOEvents.ThreatType+%22joke%22+%29+%28+eq+EPOEvents.ThreatType+%22app_IM%22+%29+%28+eq+EPOEvents.ThreatType+%22app_dialer%22+%29+%28+eq+EPOEvents.ThreatType+%22app_puocookie%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pua%22+%29+%28+eq+EPOEvents.ThreatType+%22app_adware%22+%29+%29+%28+eq+EPOEvents.ThreatHandled+f+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=line.multiline&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.ThreatType%3AEPOEvents.DetectedUTC&amp;orion.sum.order=az%3Aoldest&amp;orion.sum.limit.count=50&amp;orion.sum.time.cols=%3Atrue&amp;orion.sum.time.unit=%3Aday&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>6</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>1</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="10">
+        <dictionary id="11"/>
+        <name>TOP 10: Malware</name>
+        <description>Last 30 days</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+2592000000++%29+%28+and+%28+not_isBlank+EPOEvents.ThreatName+%29+%28+notContains+EPOEvents.ThreatName+%22suspicious%22+%29+%28+notContains+EPOEvents.ThreatName+%22none%22+%29+%28+notContains+EPOEvents.ThreatName+%22User+defined%22+%29+%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22av%22+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=EPOEvents.ThreatName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=11&amp;orion.show.other=true&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>8</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>0</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="12">
+        <dictionary id="13"/>
+        <name>Events Generated by Module in 3 days</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.requied.sexp=%28+where+%28+newerThan+EPOEvents.DetectedUTC+259200000++%29+%29&amp;orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?orion.query.type=line.multiline&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.AnalyzerName%3AEPOEvents.DetectedUTC&amp;orion.sum.order=desc%3Aoldest&amp;orion.sum.limit.count=50&amp;orion.sum.time.cols=%3Atrue&amp;orion.sum.time.unit=%3Aday&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

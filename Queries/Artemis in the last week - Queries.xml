@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>Artemis Detections in the Last Week</name>
+    <description>This report shows the value of Artemis and McAfees Global Threat Intelligence. These Viruses were stopped without the latest DATs using GTI cloud technology. Shows how many Artemis detections there were per day.</description>
+    <target>EPOEvents</target>
+    <table-uri>query:table?orion.table.columns=EPOEvents.ThreatCategory%3AEPOEvents.ThreatType%3AEPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate%3AEPOProductPropertyProducts.Products&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.ThreatCategory%3AEPOEvents.ThreatType%3AEPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate%3AEPOProductPropertyProducts.Products</table-uri>
+    <condition-uri>query:condition?orion.requied.sexp=&amp;orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+604800000++%29+%28+startsWith+EPOEvents.AnalyzerName+%22VirusScan+Enterprise%22+%29+%28+contains+EPOEvents.ThreatName+%22artemis%22+%29+%29+%29</condition-uri>
+    <summary-uri>query:summary?horizontal=true&amp;orion.query.type=bar.stackedbar&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName&amp;orion.sum.time.cols=true&amp;orion.sum.time.unit=day&amp;orion.sum.order=oldest%3Adesc&amp;orion.sum.limit.count=100%3A100&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>

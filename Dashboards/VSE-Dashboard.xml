@@ -1,0 +1,202 @@
+<dashboard id="1">
+  <name>VSE</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>2</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>VSE: Version 8.8 Compliance</name>
+        <description>Displays the current McAfee anti-virus software compliance based on DAT, engine, and service pack version.</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOComputerProperties.ComputerName%3AEPOComputerProperties.DomainName%3AEPOLeafNode.Tags%3AEPOLeafNode.os%3AEPOProductPropertyProducts.Products%3AEPOLeafNode.LastUpdate%3AEPOProdPropsView_VIRUSCAN.productversion%3AEPOProdPropsView_VIRUSCAN.hotfix%3AEPOProdPropsView_VIRUSCAN.datver%3AEPOProdPropsView_VIRUSCAN.enginever&amp;orion.table.order=az&amp;orion.table.order.by=EPOComputerProperties.ComputerName%3AEPOComputerProperties.DomainName%3AEPOLeafNode.Tags%3AEPOLeafNode.os%3AEPOProductPropertyProducts.Products%3AEPOLeafNode.LastUpdate%3AEPOProdPropsView_VIRUSCAN.productversion%3AEPOProdPropsView_VIRUSCAN.hotfix%3AEPOProdPropsView_VIRUSCAN.datver%3AEPOProdPropsView_VIRUSCAN.enginever</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?bool.show.criteria=false&amp;orion.query.type=pie.bool&amp;orion.sum.query=true&amp;bool.red.text=Non-Compliant&amp;show.percentage=false&amp;bool.green.text=Compliant&amp;bool.green.criteria=%28+where+%28+and+%28+withinRepositoryDatVersion+EPOProdPropsView_VIRUSCAN.datver+3++%29+%28+version_ge+EPOProdPropsView_VIRUSCAN.enginever+%225400%22+%29+%28+and+%28+version_ge+EPOProdPropsView_VIRUSCAN.productversion+%228.8%22+%29+%28+version_lt+EPOProdPropsView_VIRUSCAN.productversion+%228.9%22+%29+%29+%29+%29&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>10</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>VSE: DAT Deployment</name>
+        <description>Displays the three highest DAT versions, and a slice for all the other versions.</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOComputerProperties.ComputerName%3AEPOComputerProperties.DomainName%3AEPOLeafNode.os%3AEPOComputerProperties.Description%3AEPOLeafNode.Tags%3AEPOProdPropsView_VIRUSCAN.productversion%3AEPOProdPropsView_VIRUSCAN.hotfix%3AEPOProdPropsView_VIRUSCAN.servicepack%3AEPOProdPropsView_VIRUSCAN.enginever%3AEPOProdPropsView_VIRUSCAN.enginever64%3AEPOProdPropsView_VIRUSCAN.datver%3AEPOLeafNode.LastUpdate&amp;orion.table.order.by=EPOComputerProperties.ComputerName%3AEPOComputerProperties.DomainName%3AEPOLeafNode.os%3AEPOComputerProperties.Description%3AEPOLeafNode.Tags%3AEPOProdPropsView_VIRUSCAN.productversion%3AEPOProdPropsView_VIRUSCAN.hotfix%3AEPOProdPropsView_VIRUSCAN.servicepack%3AEPOProdPropsView_VIRUSCAN.enginever%3AEPOProdPropsView_VIRUSCAN.enginever64%3AEPOProdPropsView_VIRUSCAN.datver%3AEPOLeafNode.LastUpdate&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+version_ge+EPOProdPropsView_VIRUSCAN.productversion+%228%22+%29+%29</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=EPOProdPropsView_VIRUSCAN.datver&amp;pie.count.title=EPOLeafNode&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOProdPropsView_VIRUSCAN.datver&amp;orion.sum.order=desc&amp;orion.sum.limit.count=4&amp;orion.show.other=true&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>12</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>0</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="6">
+        <dictionary id="7"/>
+        <name>VSE: Threats Detected Over the Previous 2 Quarters</name>
+        <description>Displays the threats detected over the previous two quarters. No cookies.</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.ThreatCategory%3AEPOEvents.ThreatType%3AEPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.ThreatCategory%3AEPOEvents.ThreatType%3AEPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+startsWith+EPOEvents.AnalyzerName+%22VirusScan+Ent%22+%29+%28+notContains+EPOEvents.AnalyzerName+%22for%22+%29+%28+newerThan+EPOEvents.DetectedUTC+15724800000++%29+%28+or+%28+eq+EPOEvents.ThreatType+%22app%22+%29+%28+eq+EPOEvents.ThreatType+%22app_adware%22+%29+%28+eq+EPOEvents.ThreatType+%22app_remoteadmin%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pua%22+%29+%28+eq+EPOEvents.ThreatType+%22app_puo%22+%29+%28+eq+EPOEvents.ThreatType+%22app_package%22+%29+%28+eq+EPOEvents.ThreatType+%22app_rootkit%22+%29+%28+eq+EPOEvents.ThreatType+%22app_P2P%22+%29+%28+eq+EPOEvents.ThreatType+%22app_IM%22+%29+%28+eq+EPOEvents.ThreatType+%22app_keylogger%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pwcracker%22+%29+%28+eq+EPOEvents.ThreatType+%22app_dialer%22+%29+%28+eq+EPOEvents.ThreatType+%22app_spyware%22+%29+%28+eq+EPOEvents.ThreatType+%22virus%22+%29+%28+eq+EPOEvents.ThreatType+%22comp%22+%29+%28+eq+EPOEvents.ThreatType+%22trojan%22+%29+%28+eq+EPOEvents.ThreatType+%22joke%22+%29+%28+eq+EPOEvents.ThreatType+%22test%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?groupedbar.count.title=EPOEvents&amp;orion.query.type=bar.groupedbar&amp;groupedbar.title=EPOEvents.DetectedUTC&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.DetectedUTC%3AEPOEvents.ThreatType&amp;orion.sum.time.cols=true&amp;orion.sum.time.unit=quarter&amp;orion.sum.order=oldest%3Adesc&amp;orion.sum.limit.count=2&amp;orion.show.other=false&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>5</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="8">
+        <dictionary id="9"/>
+        <name>VSE: Threats Detected in the Last 7 Days</name>
+        <description>The number of threat events in the last seven days. No cookies.</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.ThreatCategory%3AEPOEvents.ThreatType%3AEPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate&amp;orion.table.order.by=EPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+604800000++%29+%28+startsWith+EPOEvents.AnalyzerName+%22VirusScan+Ent%22+%29+%28+notContains+EPOEvents.AnalyzerName+%22for%22+%29+%28+or+%28+eq+EPOEvents.ThreatType+%22app%22+%29+%28+eq+EPOEvents.ThreatType+%22app_adware%22+%29+%28+eq+EPOEvents.ThreatType+%22app_remoteadmin%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pua%22+%29+%28+eq+EPOEvents.ThreatType+%22app_puo%22+%29+%28+eq+EPOEvents.ThreatType+%22app_package%22+%29+%28+eq+EPOEvents.ThreatType+%22app_rootkit%22+%29+%28+eq+EPOEvents.ThreatType+%22app_P2P%22+%29+%28+eq+EPOEvents.ThreatType+%22app_IM%22+%29+%28+eq+EPOEvents.ThreatType+%22app_keylogger%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pwcracker%22+%29+%28+eq+EPOEvents.ThreatType+%22app_dialer%22+%29+%28+eq+EPOEvents.ThreatType+%22app_spyware%22+%29+%28+eq+EPOEvents.ThreatType+%22virus%22+%29+%28+eq+EPOEvents.ThreatType+%22comp%22+%29+%28+eq+EPOEvents.ThreatType+%22trojan%22+%29+%28+eq+EPOEvents.ThreatType+%22joke%22+%29+%28+eq+EPOEvents.ThreatType+%22test%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?line.count.title=EPOEvents&amp;orion.query.type=line.line&amp;orion.sum.query=true&amp;line.title=EPOEvents.DetectedUTC&amp;orion.sum.group.by=EPOEvents.DetectedUTC&amp;orion.sum.time.cols=true&amp;orion.sum.time.unit=day&amp;orion.sum.order=oldest&amp;orion.show.other=false&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>4</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="10">
+        <dictionary id="11"/>
+        <name>VSE: Spyware Detected in the Last 7 Days</name>
+        <description>The number of spyware events in the last seven days.</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.ThreatCategory%3AEPOEvents.ThreatType%3AEPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.ThreatCategory%3AEPOEvents.ThreatType%3AEPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+604800000++%29+%28+startsWith+EPOEvents.AnalyzerName+%22VirusScan+Ent%22+%29+%28+notContains+EPOEvents.AnalyzerName+%22for%22+%29+%28+or+%28+eq+EPOEvents.ThreatType+%22app_spyware%22+%29+%28+eq+EPOEvents.ThreatType+%22app_dialer%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pwcracker%22+%29+%28+eq+EPOEvents.ThreatType+%22app_keylogger%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?line.count.title=EPOEvents&amp;orion.query.type=line.line&amp;orion.sum.query=true&amp;line.title=EPOEvents.DetectedUTC&amp;orion.sum.group.by=EPOEvents.DetectedUTC&amp;orion.sum.time.cols=true&amp;orion.sum.time.unit=day&amp;orion.sum.order=oldest&amp;orion.show.other=false&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>3</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>1</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="12">
+        <dictionary id="13"/>
+        <name>VSE: Unwanted Programs Detected in the Last 7 Days</name>
+        <description>The number of potentially unwanted program events in the last seven days.</description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.ThreatCategory%3AEPOEvents.ThreatType%3AEPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate&amp;orion.table.order.by=EPOEvents.TargetUserName%3AEPOEvents.TargetHostName%3AEPOEvents.AnalyzerIPV4%3AEPOLeafNode.Tags%3AEPOEvents.AnalyzerName%3AEPOEvents.AnalyzerVersion%3AEPOEvents.AnalyzerDATVersion%3AEPOEvents.AnalyzerEngineVersion%3AEPOLeafNode.LastUpdate&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+604800000++%29+%28+startsWith+EPOEvents.AnalyzerName+%22VirusScan+Ent%22+%29+%28+notContains+EPOEvents.AnalyzerName+%22for%22+%29+%28+or+%28+eq+EPOEvents.ThreatType+%22app%22+%29+%28+eq+EPOEvents.ThreatType+%22app_adware%22+%29+%28+eq+EPOEvents.ThreatType+%22app_remoteadmin%22+%29+%28+eq+EPOEvents.ThreatType+%22app_pua%22+%29+%28+eq+EPOEvents.ThreatType+%22app_puo%22+%29+%28+eq+EPOEvents.ThreatType+%22app_package%22+%29+%28+eq+EPOEvents.ThreatType+%22app_rootkit%22+%29+%28+eq+EPOEvents.ThreatType+%22app_P2P%22+%29+%28+eq+EPOEvents.ThreatType+%22app_IM%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?line.count.title=EPOEvents&amp;orion.query.type=line.line&amp;orion.sum.query=true&amp;line.title=EPOEvents.DetectedUTC&amp;orion.sum.group.by=EPOEvents.DetectedUTC&amp;orion.sum.time.cols=true&amp;orion.sum.time.unit=day&amp;orion.sum.order=newest&amp;orion.show.other=false&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>7</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>2</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="14">
+        <dictionary id="15"/>
+        <name>VSE: Artemis Level for On-Access Scan</name>
+        <description>Displays the Artemis level of On-Access Scan for all VirusScan Enterprise machines. Includes those with Artemis disabled and those without Artemis.</description>
+        <target>VSE_ArtemisLevelView</target>
+        <table-uri>query:table?orion.table.columns=VSE_ArtemisLevelView.ServerName%3AVSE_ArtemisLevelView.OASArtemisLevel&amp;orion.table.order.by=VSE_ArtemisLevelView.ServerName%3AVSE_ArtemisLevelView.OASArtemisLevel&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=VSE_ArtemisLevelView.OASArtemisLevel&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;orion.sum.group.by=VSE_ArtemisLevelView.OASArtemisLevel&amp;orion.sum.order=asc&amp;orion.show.other=false&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>6</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>2</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="16">
+        <dictionary id="17"/>
+        <name>VSE: Artemis Level for On-Demand Scan</name>
+        <description>Displays the Artemis level of On-Demand for all VirusScan Enterprise machines. Includes those with Artemis disabled and those without Artemis.</description>
+        <target>VSE_ArtemisLevelView</target>
+        <table-uri>query:table?orion.table.columns=VSE_ArtemisLevelView.ServerName%3AVSE_ArtemisLevelView.ODSArtemisLevel&amp;orion.table.order.by=VSE_ArtemisLevelView.ServerName%3AVSE_ArtemisLevelView.ODSArtemisLevel&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=VSE_ArtemisLevelView.ODSArtemisLevel&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;orion.sum.group.by=VSE_ArtemisLevelView.ODSArtemisLevel&amp;orion.sum.order=asc&amp;orion.show.other=false&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>8</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>2</y>
+    <refreshInterval>5</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>false</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="18">
+        <dictionary id="19"/>
+        <name>VSE: Artemis Level for Email Scan</name>
+        <description>Displays the Artemis level of Email Scan for all VirusScan Enterprise machines. Includes those with Artemis disabled and those without Artemis.</description>
+        <target>VSE_ArtemisLevelView</target>
+        <table-uri>query:table?orion.table.columns=VSE_ArtemisLevelView.ServerName%3AVSE_ArtemisLevelView.EmailArtemisLevel&amp;orion.table.order.by=VSE_ArtemisLevelView.ServerName%3AVSE_ArtemisLevelView.EmailArtemisLevel&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=</condition-uri>
+        <summary-uri>query:summary?pie.slice.title=VSE_ArtemisLevelView.EmailArtemisLevel&amp;orion.query.type=pie.pie&amp;orion.sum.query=true&amp;orion.sum.group.by=VSE_ArtemisLevelView.EmailArtemisLevel&amp;orion.sum.order=asc&amp;orion.show.other=false&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

@@ -1,0 +1,136 @@
+<dashboard id="1">
+  <name>HIPS Analysis</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>5</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>HIPS: Buffer Overflow</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+259200000++%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip.Buffer_Overflow%22+%29+%28+and+%28+notContains+EPOEvents.ThreatName+%223700%22+%29+%28+notContains+EPOEvents.ThreatName+%223701%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.sum.query=true&amp;orion.query.type=summary.multigroup&amp;orion.sum.group.by=EPOEvents.SourceIPV4%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc%3Adesc%3Adesc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>6</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>1</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>HIPS: HOOK</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+259200000++%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip.Hook%22+%29+%28+and+%28+notContains+EPOEvents.ThreatName+%223700%22+%29+%28+notContains+EPOEvents.ThreatName+%223701%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.sum.query=true&amp;orion.query.type=summary.multigroup&amp;orion.sum.group.by=EPOEvents.SourceIPV4%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc%3Adesc%3Adesc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>7</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>0</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="6">
+        <dictionary id="7"/>
+        <name>HIPS: IIS Events</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+259200000++%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip.Isapi%22+%29+%28+and+%28+notContains+EPOEvents.ThreatName+%223700%22+%29+%28+notContains+EPOEvents.ThreatName+%223701%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.sum.query=true&amp;orion.query.type=summary.multigroup&amp;orion.sum.group.by=EPOEvents.SourceIPV4%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc%3Adesc%3Adesc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>8</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>2</x>
+    <y>1</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="8">
+        <dictionary id="9"/>
+        <name>HIPS: Registry signatures</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+259200000++%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip.Registry%22+%29+%28+and+%28+notContains+EPOEvents.ThreatName+%223700%22+%29+%28+notContains+EPOEvents.ThreatName+%223701%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.sum.query=true&amp;orion.query.type=summary.multigroup&amp;orion.sum.group.by=EPOEvents.SourceIPV4%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc%3Adesc%3Adesc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>9</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="10">
+        <dictionary id="11"/>
+        <name>HIPS: SQL Events</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+259200000++%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22hip.Sql%22+%29+%28+and+%28+notContains+EPOEvents.ThreatName+%223700%22+%29+%28+notContains+EPOEvents.ThreatName+%223701%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.sum.query=true&amp;orion.query.type=summary.multigroup&amp;orion.sum.group.by=EPOEvents.SourceIPV4%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName&amp;orion.sum.order=desc%3Adesc%3Adesc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>10</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>1</y>
+    <refreshInterval>20</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="12">
+        <dictionary id="13"/>
+        <name>HIPS: SRC IP to DST IP</name>
+        <description></description>
+        <target>EPOEvents</target>
+        <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.SourceIPV4%3AEPOEvents.TargetIPV4%3AEPOEvents.TargetPort%3AEPOEvents.ThreatHandled%3AEPOBranchNode.NodeTextPath2</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+259200000++%29+%28+threatcategory_belongs+EPOEvents.ThreatCategory+%22nip%22+%29+%28+and+%28+notContains+EPOEvents.ThreatName+%223700%22+%29+%28+notContains+EPOEvents.ThreatName+%223701%22+%29+%29+%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.sum.query=true&amp;orion.query.type=summary.multigroup&amp;orion.sum.group.by=EPOEvents.SourceIPV4%3AEPOEvents.ThreatName%3AHIP8_SigNameXlate.SignatureName%3AEPOEvents.TargetIPV4&amp;orion.sum.order=desc%3Adesc%3Adesc%3Adesc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

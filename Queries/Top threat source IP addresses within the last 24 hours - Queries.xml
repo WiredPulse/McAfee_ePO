@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>Top Threat Source IP Addresses within the last 24 hours</name>
+    <description></description>
+    <target>EPOEvents</target>
+    <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order.by=EPOEvents.SourceIPV4&amp;orion.table.order=asc</table-uri>
+    <condition-uri>query:condition?orion.requied.sexp=&amp;orion.condition.sexp=%28+where+%28+and+%28+not_in_ipv6_subnet+EPOEvents.SourceIPV6+%28+ipv6+%221.1.1.1%22+%29+24++%29+%28+newerThan+EPOEvents.DetectedUTC+604800000++%29+%29+%29</condition-uri>
+    <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=EPOEvents.SourceIPV4&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>

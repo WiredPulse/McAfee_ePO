@@ -1,0 +1,48 @@
+<dashboard id="1">
+  <name>Operating Systems</name>
+  <filteringEnabled>false</filteringEnabled>
+  <monitor>
+    <uid>2</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>0</x>
+    <y>0</y>
+    <refreshInterval>30</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="2">
+        <dictionary id="3"/>
+        <name>Location of systems</name>
+        <description></description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName&amp;orion.table.order.by=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+newerThan+EPOLeafNode.LastUpdate+1209600000++%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=false&amp;orion.sum.group.by=EPOBranchNode.L2ParentID&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+  <monitor>
+    <uid>3</uid>
+    <width>1</width>
+    <height>1</height>
+    <x>1</x>
+    <y>0</y>
+    <refreshInterval>30</refreshInterval>
+    <refreshIntervalUnit>MIN</refreshIntervalUnit>
+    <customConfigOptions>dashboardElement:config?database=</customConfigOptions>
+    <filteringEnabled>true</filteringEnabled>
+    <customExport factory="core.queryFactory">
+      <query id="4">
+        <dictionary id="5"/>
+        <name>OS based on Location</name>
+        <description>OS for managed systems</description>
+        <target>EPOLeafNode</target>
+        <table-uri>query:table?orion.table.columns=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName&amp;orion.table.order.by=EPOLeafNode.LastUpdate%3AEPOLeafNode.NodeName&amp;orion.table.order=az</table-uri>
+        <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+newerThan+EPOLeafNode.LastUpdate+1209600000++%29+%29</condition-uri>
+        <summary-uri>query:summary?orion.sum.query=true&amp;orion.query.type=summary.multigroup&amp;orion.sum.group.by=EPOBranchNode.L2ParentID%3AEPOComputerProperties.OSType&amp;orion.sum.order=desc%3Adesc&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+      </query>
+    </customExport>
+  </monitor>
+</dashboard>

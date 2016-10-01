@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>Most Numerous Threat Event Descriptions in the Database</name>
+    <description>Shows the most numerous threat events found in the database today. This can let you pinpoint events that may be overwhelming your database and then you can filter them by disabling them.</description>
+    <target>EPOEvents</target>
+    <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.SourceProcessName&amp;orion.table.order.by=EPOEvents.TargetFileName&amp;orion.table.order=asc</table-uri>
+    <condition-uri>query:condition?orion.requied.sexp=&amp;orion.condition.sexp=</condition-uri>
+    <summary-uri>query:summary?orion.query.type=bar.bar&amp;orion.sum.query=true&amp;orion.sum.group.by=EPOEvents.TargetFileName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=200&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>
