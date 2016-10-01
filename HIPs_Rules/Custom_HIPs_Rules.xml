@@ -404,7 +404,7 @@
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicyObject name="Custom_HIPs" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" serverid="MLD-EPO" editflag="0" typeid="IPS_Rules">
+<EPOPolicyObject name="Custom_HIPs_Rules" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" serverid="MLD-EPO" editflag="0" typeid="IPS_Rules">
 <description></description><PolicySettings>HIPS_IPSSigWindows_28</PolicySettings>
 <PolicySettings>HIPS_IPSSigWindows_11</PolicySettings>
 <PolicySettings>HIPS_IPSSigWindows_7</PolicySettings>
