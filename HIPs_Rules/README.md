@@ -9,7 +9,7 @@ Download the McAfee_ePO repository as a whole versus using the copy and paste me
 4) Click Menu -> Policy -> Policy Catalog<br>
 5) Select Host Intrusion Prevention: IPS from within the Product drop-down area<br>
 6) Click 'Import'<br>
-7) Click 'Choose'and select the Custom_HIPS_Rules.xml file within the McAfee_ePO-master\HIPs_Rules folder <br>
+7) Click 'Choose' and select the Custom_HIPS_Rules.xml file within the McAfee_ePO-master\HIPs_Rules folder <br>
 8) Click OK twice<br>
 9) Click on the entry labeled "Custom_HIPs_Rules"<br>
 10) Under the 'Type' dropdown at the top of the screen, select 'Custom'<br>
