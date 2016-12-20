@@ -12,7 +12,7 @@ Download the McAfee_ePO repository as a whole versus using the copy and paste me
 8) Create a New Group to store the query in or select from existing groups. Note: Anything under Private Groups will only be accessible the person who uploaded it<br>
 9) Click Save<br>
 10) Queries are now imported.<br>
-&#160;&#160;&#160;&#160;&#160;Note: If you want to rename a query, checkmark the box to the left of the query name. Select Actions ‐> Duplicate.<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;Note: If you want to rename a query, checkmark the box to the left of the query name. Select Actions ‐> Duplicate.<br>
 11 Go to the dashboard that you want to import a query into or create a new dashboard<br>
 12 Near the top center of the screen, select Add Monitor<br>
 13 Select Queries from the Category drop‐down menu<br>
@@ -20,4 +20,4 @@ Download the McAfee_ePO repository as a whole versus using the copy and paste me
 15 From the screen that appears, you can select the query you want to import and the refresh interval<br>
 16 Click Ok<br>
 17 The query will now appear on the dashboard<br>
-&#160;&#160;&#160;&#160;&#160;Note: To rename the monitor on the dashboard, click the triangle to the left of the monitor name and select Edit.
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;Note: To rename the monitor on the dashboard, click the triangle to the left of the monitor name and select Edit.
