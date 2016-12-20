@@ -8,7 +8,7 @@ All of these dashboards include the necessary queries. Importing the dashboards,
 
 1) Download the McAfee_ePO repository<br>
 2) Unzip the respository<br>
-3) Navigate to and log into the McAfee ePO web console<br>
+3) Navigate to the McAfee ePO web console and log in<br>
 4) Click Menu -> Reporting -> Dashboards<br>
 5) Click Dashboard Actions<br>
 6) Select Import<br>
