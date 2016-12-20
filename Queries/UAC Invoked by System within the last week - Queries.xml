@@ -1,0 +1,11 @@
+<list id="1">
+  <query id="2">
+    <dictionary id="3"/>
+    <name>UAC Invoked by System within the last week</name>
+    <description>Returns all triggered UACs that have been invoked</description>
+    <target>EPOEvents</target>
+    <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.SourceIPV6%3AEPOEvents.TargetIPV6%3AEPOEvents.ThreatName%3AHIP8_EventInfo.AppDesc&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName&amp;orion.table.order=az</table-uri>
+    <condition-uri>query:condition?orion.condition.sexp=%28+where+%28+and+%28+newerThan+EPOEvents.DetectedUTC+604800000++%29+%28+eq+EPOEvents.AnalyzerName+%22McAfee+Host+Intrusion+Prevention%22+%29+%28+endsWith+EPOEvents.TargetFileName+%22consent.exe%22+%29+%29+%29</condition-uri>
+    <summary-uri>query:summary?orion.query.type=pie.pie&amp;orion.sum.query=true&amp;show.percentage=true&amp;orion.sum.group.by=EPOComputerProperties.ComputerName&amp;orion.sum.order=desc&amp;orion.sum.limit.count=360&amp;orion.sum.aggregation=count&amp;orion.sum.aggregation.showTotal=true</summary-uri>
+  </query>
+</list>
