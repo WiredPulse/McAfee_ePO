@@ -2,17 +2,25 @@
 Download the McAfee_ePO repository as a whole versus using the copy and paste method or using the right-click and save method. If you do either of the latter two options, there will be formatting issues. 
 <br><br>
 
-# Importing Rules:
+# Importing Queries:
 1) Download the McAfee_ePO repository<br>
 2) Unzip the respository<br>
 3) Navigate and log into the McAfee ePO web console<br>
-4) Click Menu -> Policy -> Policy Catalog<br>
-5) Click 'Import'<br>
-6) Click 'Choose'and select the Custom_HIPS_Rules.xml file within the McAfee_ePO-master\HIPs_Rules folder <br>
-7) Click OK twice<br>
-8) Click on the entry labeled "Custom_HIPs_Rules"<br>
-9) Under the 'Type' dropdown at the top of the screen, select 'Custom'<br>
-10) The custom rules are shown. From here you can adjust them as you see fit. Once done, add the newly add Custom_HIPs_Rules policy to a container within System Tree.<br>
+4) Click Menu -> Reporting -> Queries & Reports<br>
+6) In the center pane at the bottom, click Actions ‐> Import Definitions<br>
+7) Browse to the location of the .xml query<br>
+8) Create a New Group to store the query in or select from existing groups. Note: Anything under Private Groups will only be accessible the person who uploaded it<br>
+10) Click Save<br>
+11) Queries are now imported.<br>
+Note: If you want to rename a query, checkmark the box to the left of the query name. Select Actions ‐> Duplicate.<br>
+13) Go to the dashboard that you want to import a query into or create a new dashboard<br>
+14) Near the top center of the screen, select Add Monitor<br>
+15) Select Queries from the Category drop‐down menu<br>
+16) Click and drag the Queries chart onto the Dashboard. When dragging, if the box is orange, that means the query will not fit in the current spot. Whenever the box is white, that means it will fit. If the screen is full, you can try to right side of the screen or the bottom of the screen.
+17) From the screen that appears, you can select the query you want to import and the refresh interval<br>
+18) Click Ok<br>
+19) The query will now appear on the dashboard<br>
+ Note: To rename the monitor on the dashboard, click the triangle to the left of the monitor name and select Edit.
 
 <br><br>
 # Rule Contents and Descriptions:
