@@ -5,7 +5,7 @@ Download the McAfee_ePO repository as a whole versus using the copy and paste me
 # Importing Queries:
 1) Download the McAfee_ePO repository<br><br>
 2) Unzip the respository<br><br>
-3) Navigate to and log into the McAfee ePO web console<br><br>
+3) Navigate to the McAfee ePO web console and log in<br><br>
 4) Click Menu -> Reporting -> Queries & Reports<br><br>
 6) In the center pane at the bottom, click Actions ‐> Import Definitions<br><br>
 7) Browse to the location of the .xml query<br><br>
