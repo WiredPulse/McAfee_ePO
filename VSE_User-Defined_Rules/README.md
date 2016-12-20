@@ -5,8 +5,10 @@ Download the McAfee_ePO repository as a whole versus using the copy and paste me
 # Importing Rules into VSE:
 1) Download the McAfee_ePO repository<br>
 2) Unzip the respository<br>
-3) Navigate to and log into the McAfee ePO web console<br>
+3) Navigate to the McAfee ePO web console and log in<br>
 4) Click Menu -> Policy -> Policy Catalog<br>
+5) Select VirusScan Enterprise within the Product drop-down
+
 5) Click 'Import'<br>
 6) Click 'Choose'and select the Custom_HIPS_Rules.xml file within the McAfee_ePO-master\HIPs_Rules folder <br>
 7) Click OK twice<br>
