@@ -2,7 +2,7 @@
 Download the McAfee_ePO repository as a whole versus using the copy and paste method or using the right-click and save method. If you do either of the latter two options, there will be formatting issues. 
 <br><br>
 
-# Importing Rulesinto HIPS:
+# Importing Rules into HIPS:
 1) Download the McAfee_ePO repository<br>
 2) Unzip the respository<br>
 3) Navigate and log into the McAfee ePO web console<br>
