@@ -1,5 +1,15 @@
 # NOTE:
-Download the McAfee_ePO repository as a whole versus using the copy and paste method or using the right-click and save method. If you do either of the latter two options, there will be formatting issues.
+Download the McAfee_ePO repository as a whole versus using the copy and paste method or using the right-click and save method. If you do either of the latter two options, there will be formatting issues. 
+<br><br>
+
+# Importing Rules:
+1) Download the McAfee_ePO repository
+2) Unzip the respository
+3) Navigate and log into the McAfee ePO web console<br>
+4) Click Menu -> Policy -> Policy Catalog<br>
+5) Click 'Import'
+6) Click 'Coose' and navigate to the 
+
 <br><br>
 # Rule Contents and Descriptions:
 The .xml contains the following rules: <br>
