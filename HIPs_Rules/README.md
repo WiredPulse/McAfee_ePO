@@ -1,5 +1,5 @@
-# NOTE
-Download the HIPs rules as a zip versus copying and pasting the content or using the right-click and size method. If you do the latter options, there will be formatting issues.
+# NOTE:
+Download the McAfee_ePO repository as a whole versus using the copy and paste method or using the right-click and save method. If you do either of the latter two options, there will be formatting issues.
 <br><br>
 The .xml contains the following rules: <br>
 <br>
