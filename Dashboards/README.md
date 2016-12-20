@@ -13,9 +13,7 @@ All of these dashboards include the necessary queries. Importing the dashboards,
 5) Click Dashboard Actions<br>
 6) Select Import<br>
 7) Browse to the location of the saved Dashboard (.xml)<br>
-8) Click Ok twice
-9) You will then be presented with the imported dashboard on the screen.
-10) Click Close near the category drop‐down.
-11) Lastly, click Save on the Dashboard menu board.
-
-
+8) Click Ok twice<br>
+9) You will then be presented with the imported dashboard on the screen<br>
+10) Click Close near the category drop‐down<br>
+11) Lastly, click Save on the Dashboard menu board<br>
