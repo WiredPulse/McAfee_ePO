@@ -1,7 +1,7 @@
 # NOTE:
 Download the McAfee_ePO repository as a whole versus using the copy and paste method or using the right-click and save method. If you do either of the latter two options, there will be formatting issues.
 <br><br>
-# Rule Descriptions:
+# Rule Contents and Descriptions:
 The .xml contains the following rules: <br>
 <br>
 __Registry Persistence : Monitors for common keys used for persistence.<br><br>
