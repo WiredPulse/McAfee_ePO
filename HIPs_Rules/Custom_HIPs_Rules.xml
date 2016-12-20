@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <epo:EPOPolicySchema xmlns:epo="mcafee-epo-policy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <EPOPolicyVerInfo vermjr="5" vermin="1" verrel="0" verbld="0"/>
-<EPOPolicySettings name="HIPS_IPSSigWindows_28" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_22" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="CreatorID" value="McAfee"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-19T05:53:50.436-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="Powershell Command Restriction - NoProfile"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="6081"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_9" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Blocked Access for Mr. X&quot;&#xA;Class Files&#xA;Id 4020&#xA;level 1&#xA;user_name { Include &quot;&lt;domain&gt;\\admin&quot; }&#xA;files { Include &quot;*&quot; }&#xA;directives files:execute files:rename files:write files:delete files:read files:attribute files:create &#xA;}&#xA;"/>
+<Setting name="CreationDate" value="2016-04-03T00:55:08.706-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Blocks all a specific user&apos;s actions on a system. This is a decent containment method.&#xA;"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-09-30T19:47:07.933-04:00"/>
+<Setting name="ModSeverityLevel" value="4"/>
+<Setting name="Name" value="__Block Specific User&apos;s Actions"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4020"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_23" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Image File Execution Registry Key&quot;&#xA;Class Registry&#xA;Id 4062&#xA;level 3&#xA;values { Include &quot;\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\*&quot; }&#xA;directives registry:create registry:delete registry:modify&#xA;}"/>
+<Setting name="CreationDate" value="2016-03-10T21:27:00.503-05:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers due to an entry of a debugger with no purpose of &quot;debugging&quot;, but rather to run another program instead (likely something malicious). If you see this, then in most cases (95%), it&apos;s because of malware has set this as this is a common approach they use."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-16T05:32:39.583-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Image File Execution Option Additions (Registry)"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4062"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_11" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
 <Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Registry Persistence&quot;&#xA;Class Registry&#xA;Id 4004&#xA;level 3&#xA;values { Include &quot;\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\&amp;&quot; &quot;\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\&amp;&quot; &quot;\\REGISTRY\\CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\&amp;&quot; &quot;\\REGISTRY\\CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\&amp;&quot; &quot;\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnceEx\\&amp;&quot; &quot;\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\AppInit_DLLs\\&amp;&quot; &quot;\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\&amp;&quot; &quot;\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet\\Services\\&amp;&quot; &quot;\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet\\Services\\&amp;\\Parameters\\ServiceDLL\\&amp;&quot; &quot;\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy&quot; &quot;\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Services\\wuauserv&quot; &quot;\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\*&quot; }&#xA;values { Exclude &quot;\\REGISTRY\\MACHINE\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN\\SYNCHRONIZATION MANAGER&quot; &quot;\\REGISTRY\\CURRENT_USER\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN\\CTFMON.EXE&quot; }&#xA;directives registry:create registry:delete registry:modify&#xA;}"/>
 <Setting name="CreationDate" value="2016-03-10T21:27:00.503-05:00"/>
 <Setting name="CreatorID" value="admin"/>
 <Setting name="Description" value="Checks for common places used for persistence in the Registry"/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:43:04.161-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-13T07:14:35.354-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
 <Setting name="Name" value="__Registry Persistence"/>
 <Setting name="Note" value=""/>
@@ -17,65 +62,109 @@
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_11" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
-<Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Program with Exception&quot;&#xA;Class Program&#xA;Id 4044&#xA;level 3&#xA;Target_Executable { Include { -path &quot;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe&quot; } \&#xA;{ -path &quot;C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe&quot; }&#xA;}&#xA;user_name { Exclude &quot;&lt;domain&gt;\\user&quot; }&#xA;directives program:open_with_any program:run &#xA;}"/>
-<Setting name="CreationDate" value="2016-09-11T22:56:31.725-04:00"/>
-<Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Triggers on a specific program execution with the exception of a specified user."/>
-<Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:45:15.848-04:00"/>
-<Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Program Execution with the Execption of a Specific User"/>
-<Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4044"/>
-<Setting name="SignatureTypeID" value="1"/>
-<Setting name="_SigRule" value="1"/>
-</Section>
-</EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_7" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
-<Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;RDP Invoked&quot;&#xA;Class Program&#xA;Id 4041&#xA;level 3&#xA;Target_Executable { Include { -path &quot;C:\\Windows\\System32\\mstsc.exe&quot; }&#xA;}&#xA;directives program:open_with_any program:run &#xA;}"/>
-<Setting name="CreationDate" value="2016-09-29T05:47:39.772-04:00"/>
-<Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Hits whenever RDP has been invoked. We use the calling of mstsc.exe as the indicator."/>
-<Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:49:17.934-04:00"/>
-<Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__RDP Invoked"/>
-<Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4041"/>
-<Setting name="SignatureTypeID" value="1"/>
-<Setting name="_SigRule" value="1"/>
-</Section>
-</EPOPolicySettings>
 <EPOPolicySettings name="HIPS_IPSSigWindows_13" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Track File Access by Mr. X&quot;&#xA;Class Files&#xA;Id 4011&#xA;level 3&#xA;user_name { Include &quot;&lt;domain&gt;\\&lt;user&gt;&quot; }&#xA;files { Include &quot;*&quot; }&#xA;directives files:execute files:rename files:write files:delete files:read files:attribute files:create &#xA;}&#xA;"/>
+<Setting name="CreationDate" value="2016-04-03T00:55:08.706-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on a specific user executing, renaming, writing, deleting, reading, or creating a file.&#xA;This a way to track a user&apos;s movement in using HIPs. This is a good rule to apply to privileged accounts."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-11-26T14:07:15.734-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Track a User&apos;s Actions"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4011"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_35" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
 <Setting name="CreatorID" value="McAfee"/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-20T19:48:12.588-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-19T05:54:04.024-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="Generic Application Invocation Protection"/>
+<Setting name="Name" value="Powershell Command Restriction - File"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="6011"/>
+<Setting name="SignatureID" value="6085"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="0"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_2176" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_5" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;&quot;&#xA;Class Files&#xA;Id 4023&#xA;level 3&#xA;files { Include &quot;*\\evil.exe&quot; }&#xA;directives files:rename files:write files:delete files:attribute&#xA;}"/>
-<Setting name="CreationDate" value="2016-09-11T23:56:02.898-04:00"/>
-<Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Triggers on a specific program anywhere on the system being written to disk, deleted, or renamed."/>
+<Setting name="CreatorID" value="McAfee"/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:59:43.963-04:00"/>
+<Setting name="LastModifyDate" value="2016-09-20T21:42:38.461-04:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Program downloaded, deleted, or renamed anywhere on System"/>
+<Setting name="Name" value="Hidden Powershell Detected"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4023"/>
+<Setting name="SignatureID" value="6070"/>
 <Setting name="SignatureTypeID" value="1"/>
-<Setting name="_SigRule" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="Windows:Mounted Drives Exception:3e0adb74-be11-4f6e-a80b-0f2544216249" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="1" param_str="Mounted Drives Exception">
+<Section name="1">
+<Setting name="+AppDescription#0" value=""/>
+<Setting name="+AppDescription#1" value=""/>
+<Setting name="+AppDescription#2" value=""/>
+<Setting name="+AppHash#0" value="09407f51ed21004d027f6115c2afe119"/>
+<Setting name="+AppHash#1" value="61f471ae88390a588105086c32d555a5"/>
+<Setting name="+AppHash#2" value="8d958808853be6d12997f8290879820c"/>
+<Setting name="+AppName#0" value="PowerPoint"/>
+<Setting name="+AppName#1" value="Word"/>
+<Setting name="+AppName#2" value="Smartscreen"/>
+<Setting name="+AppNote#0" value=""/>
+<Setting name="+AppNote#1" value=""/>
+<Setting name="+AppNote#2" value=""/>
+<Setting name="+AppPath#0" value=""/>
+<Setting name="+AppPath#1" value=""/>
+<Setting name="+AppPath#2" value=""/>
+<Setting name="+AppSigner#0" value=""/>
+<Setting name="+AppSigner#1" value=""/>
+<Setting name="+AppSigner#2" value=""/>
+<Setting name="2$SignatureID#4054" value="4054"/>
+<Setting name="CreationDate" value="2016-11-23T07:54:52.142-05:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="GUID" value="3e0adb74-be11-4f6e-a80b-0f2544216249"/>
+<Setting name="IncludeAllSignatures" value="0"/>
+<Setting name="IncludeAllUsers" value="1"/>
+<Setting name="IsEnabled" value="1"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-11-23T07:54:52.142-05:00"/>
+<Setting name="Name" value="Mounted Drives Exception"/>
+<Setting name="Note" value=""/>
+<Setting name="UseCustomParameters" value="0"/>
+<Setting name="_AppDescription" value="3"/>
+<Setting name="_AppHash" value="3"/>
+<Setting name="_AppName" value="3"/>
+<Setting name="_AppNote" value="3"/>
+<Setting name="_AppPath" value="3"/>
+<Setting name="_AppSigner" value="3"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_12" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+AppId#0" value="3bde4899-e775-49b5-be1d-d95686608e21"/>
+<Setting name="+AppName#0" value="Anything"/>
+<Setting name="+AppNote#0" value=""/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Program execution&quot;&#xA;Class Program&#xA;Id 4049&#xA;level 3&#xA;Target_Executable { Include { -desc &quot;*\\temp\\*&quot; }&#xA;}&#xA;directives program:open_with_create_thread program:run &#xA;}"/>
+<Setting name="+SigRule#1" value="Rule {&#xA;tag &quot;Temp Folder Protection&quot;&#xA;Class Program&#xA;Id 4049&#xA;level 3&#xA;Target_Executable { Include { -desc &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;&quot; }&#xA;}&#xA;directives program:open_with_create_thread program:run &#xA;}&#xA;"/>
+<Setting name="CreationDate" value="2016-09-11T23:43:37.486-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on anything executed in the Temp directory."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-20T12:35:27.932-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Program Execution from Temp Folder"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4049"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_AppId" value="1"/>
+<Setting name="_AppName" value="1"/>
+<Setting name="_AppNote" value="1"/>
+<Setting name="_SigRule" value="2"/>
 </Section>
 </EPOPolicySettings>
 <EPOPolicySettings name="Windows:VMware Workstation Core Envelope - File Modification:1ca604de-8cd7-4669-acc4-da728a1d1bb9" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="1" param_str="VMware Workstation Core Envelope - File Modification">
@@ -114,73 +203,97 @@
 <Setting name="_OSUserName" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_22" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_1" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+AppId#0" value="3bde4899-e775-49b5-be1d-d95686608e21"/>
-<Setting name="+AppId#1" value="3bde4899-e775-49b5-be1d-d95686608e21"/>
-<Setting name="+AppName#0" value="Anything"/>
-<Setting name="+AppNote#0" value=""/>
-<Setting name="+SigRule#0" value="Rule {&#xA;tag &quot;Temp Folder Protection&quot;&#xA;Class Program&#xA;Id 4024&#xA;level 3&#xA;Target_Executable { Include { -desc &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;&quot; }&#xA;}&#xA;directives program:open_with_create_thread program:run &#xA;}&#xA;"/>
-<Setting name="+SigRule#1" value=";Rule {&#xA;tag &quot;File Protection&quot;&#xA;Class Files&#xA;Id 4024&#xA;level 3&#xA;files { Include &quot;*\\temp\\*&quot; }&#xA;directives files:rename files:write &#xA;}"/>
-<Setting name="CreationDate" value="2016-09-11T23:43:37.486-04:00"/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;UAC Bypass&quot;&#xA;Class Files&#xA;Id 4074&#xA;level 3&#xA;files { Include &quot;*\\cryptbase.dll&quot; &quot;*\\shcore.dll&quot; &quot;*\\wdscore.dll&quot; &quot;*\\actionqueue.dll&quot; &quot;*\\ntwdblib.dll&quot; &quot;*\\devobj.dll&quot; &quot;*\\elsext.dll&quot; }&#xA;directives files:create &#xA;}"/>
+<Setting name="CreationDate" value="2016-04-03T00:55:08.706-04:00"/>
 <Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Triggers on anything executed in the users Temp directory."/>
+<Setting name="Description" value="Triggers on the following DLLs being written to disk, which could signal a UAC bypass in progress.&#xA;&#xA;CRYPTBASE.dll&#xA;SHCORE.dll&#xA;WDSCORE.dll&#xA;ACTIONQUEUE.dll&#xA;NTWDBLIB.dll&#xA;ELSEXT.dll&#xA;DEVOBJ.dll"/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:54:43.576-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-19T06:14:20.602-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Open Files from User&apos;s Temp Folder"/>
+<Setting name="Name" value="__UAC Bypass"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4024"/>
-<Setting name="SignatureTypeID" value="1"/>
-<Setting name="_AppId" value="2"/>
-<Setting name="_AppName" value="1"/>
-<Setting name="_AppNote" value="1"/>
-<Setting name="_SigRule" value="2"/>
-</Section>
-</EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_6" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
-<Section name="2">
-<Setting name="CreatorID" value="McAfee"/>
-<Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-02-23T16:39:32.366-05:00"/>
-<Setting name="ModSeverityLevel" value="4"/>
-<Setting name="Name" value="Double File Extension Execution"/>
-<Setting name="Note" value=""/>
-<Setting name="SignatureID" value="412"/>
-<Setting name="SignatureTypeID" value="1"/>
-<Setting name="_SigRule" value="0"/>
-</Section>
-</EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_16" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
-<Section name="2">
-<Setting name="CreatorID" value="McAfee"/>
-<Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-27T22:31:01.514-04:00"/>
-<Setting name="ModSeverityLevel" value="1"/>
-<Setting name="Name" value="Access Protection - Prevent all programs from running files from the Temp folder"/>
-<Setting name="Note" value=""/>
-<Setting name="SignatureID" value="3905"/>
-<Setting name="SignatureTypeID" value="1"/>
-<Setting name="_SigRule" value="0"/>
-</Section>
-</EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_14" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
-<Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;UAC Invoked&quot;&#xA;Class Program&#xA;Id 4048&#xA;level 3&#xA;Target_Executable { Include { -path &quot;C:\\Windows\\System32\\consent.exe&quot; }&#xA;}&#xA;directives program:open_with_any program:run &#xA;}"/>
-<Setting name="CreationDate" value="2016-09-30T19:49:59.101-04:00"/>
-<Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Triggers on UAC being invoked."/>
-<Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:50:22.064-04:00"/>
-<Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__UAC Invoked"/>
-<Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4048"/>
+<Setting name="SignatureID" value="4074"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_21" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_37" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;USB Rule&quot;&#xA;Class Files&#xA;Id 4021&#xA;level 3&#xA;files {Include &quot;*&quot;}&#xA;Executable {Include &quot;*&quot;}&#xA;user_name {Include &quot;*&quot;}&#xA;drive_type { Include &quot;OtherRemovable&quot; }&#xA;directives files:read&#xA;}"/>
+<Setting name="CreationDate" value="2016-09-11T23:32:54.673-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on removable media being attached to the system. Data Loss Prevention (DLP) is a&#xA;better fit for this but in the absence of it, this will do the job."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-16T07:56:08.298-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Removable Media"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4021"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_26" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="CreatorID" value="McAfee"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-11-23T07:27:56.616-05:00"/>
+<Setting name="ModSeverityLevel" value="0"/>
+<Setting name="Name" value="Generic Application Invocation Protection"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="6011"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_34" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Accessibility Features&quot;&#xA;Class Program&#xA;Id 4009&#xA;level 3&#xA;Target_Executable { Include { -path &quot;*\\utilman.exe&quot; -hash&#xA;&quot;7b9602d3475967f149c1a2c3e2b75a79&quot; -sdn &quot;*&quot; }&#xA;}&#xA;directives program:open_with_modify &#xA;}&#xA;&#xA; "/>
+<Setting name="CreationDate" value="2016-03-29T22:32:11.296-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Hits on a specific program with a specific hash."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-10-11T21:19:43.024-04:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Program Execution with a Specific Hash"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4009"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_19" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="CreatorID" value="McAfee"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-19T05:54:46.605-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="Powershell Command Restriction - ExecutionPolicy Unrestricted"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="6082"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_31" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;NTP Server Change&quot;&#xA;Class Registry&#xA;Id 4069&#xA;level 3&#xA;values { Include &quot;\\REGISTRY\\MACHINE\\SYSTEM\\ControlSet\\Services\\W32Time\\Parameters\\*&quot; }&#xA;&#xA;directives registry:modify&#xA;}&#xA;&#xA;"/>
+<Setting name="CreationDate" value="2016-03-10T21:27:00.503-05:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on a system changing its NTP server setting in the Registry. By default, domain joined systems will use the DC as their time source (Type: NT5DS). Workgroup systems use the Internet (Type: NTP)."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-17T06:56:08.317-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__NTP Server Change (Registry)"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4069"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_33" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
 <Setting name="CreatorID" value="McAfee"/>
 <Setting name="LastModifierID" value="admin"/>
@@ -193,98 +306,103 @@
 <Setting name="_SigRule" value="0"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_5" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_0" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Track File Access by Mr. X&quot;&#xA;Class Files&#xA;Id 4011&#xA;level 3&#xA;user_name { Include &quot;&lt;domain&gt;\\admin&quot; }&#xA;files { Include &quot;*&quot; }&#xA;directives files:execute files:rename files:write files:delete files:read files:attribute files:create &#xA;}&#xA;"/>
-<Setting name="CreationDate" value="2016-04-03T00:55:08.706-04:00"/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;RDP Invoked&quot;&#xA;Class Program&#xA;Id 4041&#xA;level 3&#xA;Target_Executable { Include { -path &quot;C:\\Windows\\System32\\mstsc.exe&quot; }&#xA;}&#xA;directives program:open_with_any program:run &#xA;}"/>
+<Setting name="CreationDate" value="2016-09-29T05:47:39.772-04:00"/>
 <Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Triggers on a specific user executing, renaming, writing, deleting, reading, or creating a file.&#xA;This a way to track a user&apos;s movement in using HIPs. This is a good rule to apply to privileged accounts."/>
+<Setting name="Description" value="Hits whenever RDP has been invoked. We use the calling of mstsc.exe as the indicator."/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:51:00.675-04:00"/>
+<Setting name="LastModifyDate" value="2016-09-30T19:49:17.934-04:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Track a User&apos;s Actions"/>
+<Setting name="Name" value="__RDP Invoked"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4011"/>
+<Setting name="SignatureID" value="4041"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_1" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_10" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="CreatorID" value="McAfee"/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Service Startup Mode Change&quot;&#xA;Class Services&#xA;Id 4066&#xA;level 3&#xA;display_names { Include &quot;*&quot; }&#xA;directives services:startup&#xA;}&#xA;"/>
+<Setting name="CreationDate" value="2016-03-29T22:19:39.975-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on any Service Startup Mode changes."/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-20T21:42:38.461-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-16T16:09:48.945-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="Hidden Powershell Detected"/>
+<Setting name="Name" value="__Service Startup Mode change"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="6070"/>
+<Setting name="SignatureID" value="4066"/>
 <Setting name="SignatureTypeID" value="1"/>
-<Setting name="_SigRule" value="0"/>
+<Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_17" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_27" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+AppId#0" value="3bde4899-e775-49b5-be1d-d95686608e21"/>
-<Setting name="+AppId#1" value="3bde4899-e775-49b5-be1d-d95686608e21"/>
-<Setting name="+AppName#0" value="Anything"/>
-<Setting name="+AppNote#0" value=""/>
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Program execution&quot;&#xA;Class Program&#xA;Id 4049&#xA;level 3&#xA;Target_Executable { Include { -desc &quot;*\\temp\\*&quot; }&#xA;}&#xA;directives program:open_with_create_thread program:run &#xA;}"/>
-<Setting name="+SigRule#1" value="Rule {&#xA;tag &quot;Temp Folder Protection&quot;&#xA;Class Program&#xA;Id 4049&#xA;level 3&#xA;Target_Executable { Include { -desc &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;&quot; }&#xA;}&#xA;directives program:open_with_create_thread program:run &#xA;}&#xA;"/>
-<Setting name="CreationDate" value="2016-09-11T23:43:37.486-04:00"/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Unsigned Target Executable&quot;&#xA;Class Program&#xA;Id 4077&#xA;level 3&#xA;Target_Executable { Include { -path &quot;C:\\*&quot; -sdn &quot;*&quot; } &#xA;}&#xA;Target_Executable { Exclude { -path &quot;c:\\*&quot; -sdn &quot;*CN*&quot; } \&#xA;{ -path &quot;C:\\PROGRAM FILES\\WINDOWSAPPS\\*.exe&quot; } \&#xA;{ -path &quot;C:\\Program Files (x86)\\USAF\\ACCM\\ACCM_LPC.exe&quot; } \&#xA;{ -path &quot;C:\\PROGRAM FILES (X86)\\COMMON FILES\\MACROVISION SHARED\\FLEXNET PUBLISHER\\FNPLICENSINGSERVICE.EXE&quot; }&#xA;}&#xA;directives program:open_with_any program:run &#xA;}&#xA;"/>
+<Setting name="CreationDate" value="2016-09-27T22:04:49.433-04:00"/>
 <Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Triggers on anything executed in the users Temp directory."/>
+<Setting name="Description" value="Hits on unsigned a Target Executable executing on the filesystem. For example, If you use Windows Explorer (explorer.exe) to open Notepad (notepad.exe), explorer.exe is the Executable while notepad.exe is the Target Executable."/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:55:46.963-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-19T12:08:34.297-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Program Execution from User&apos;s Temp Folder"/>
+<Setting name="Name" value="__Unsigned Target Executable Execution Anywhere"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4049"/>
-<Setting name="SignatureTypeID" value="1"/>
-<Setting name="_AppId" value="2"/>
-<Setting name="_AppName" value="1"/>
-<Setting name="_AppNote" value="1"/>
-<Setting name="_SigRule" value="2"/>
-</Section>
-</EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_26" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
-<Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Unsigned Executable Execution&quot;&#xA;Class Program&#xA;Id 4037&#xA;level 3&#xA;Target_Executable { Include { -path &quot;*\\*&quot; -sdn &quot;*&quot; } &#xA;}&#xA;Target_Executable { Exclude { -path &quot;*\\*&quot; -sdn &quot;*CN*&quot; } &#xA;&#xA;}&#xA;directives program:open_with_any program:run &#xA;}&#xA;"/>
-<Setting name="CreationDate" value="2016-09-28T07:26:08.234-04:00"/>
-<Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Hits on the execution of any unsigned executable"/>
-<Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-28T07:26:48.127-04:00"/>
-<Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Unsigned .exe execution"/>
-<Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4037"/>
+<Setting name="SignatureID" value="4077"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
 <EPOPolicySettings name="HIPS_IPSSigWindows_30" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Unsigned Executable in System32&quot;&#xA;Class Program&#xA;Id 4032&#xA;level 3&#xA;Target_Executable { Include { -path &quot;C:\\Windows\\System32\\*&quot; -sdn &quot;*&quot; } &#xA;}&#xA;Target_Executable { Exclude { -path &quot;C:\\Windows\\System32\\*&quot; -sdn &quot;*CN*&quot; } &#xA;&#xA;}&#xA;directives program:open_with_any program:run &#xA;}&#xA;&#xA; &#xA; "/>
-<Setting name="CreationDate" value="2016-09-27T22:04:49.433-04:00"/>
-<Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Hits on unsigned .exe executing within System32"/>
+<Setting name="CreatorID" value="McAfee"/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-28T08:02:42.792-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-19T05:53:57.091-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Unsigned .exe execution in System 32"/>
+<Setting name="Name" value="Powershell Command Restriction - NonInteractive"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4032"/>
+<Setting name="SignatureID" value="6083"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_8" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="CreatorID" value="McAfee"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-19T05:54:28.544-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="Powershell Command Restriction - Command"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="6086"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_14" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Windows Accessibility Features&quot;&#xA;Class Files&#xA;Id 4059&#xA;level 3&#xA;files { Include &quot;c:\\windows\\system32\\utilman.exe&quot; &quot;c:\\windows\\system32\\sethc.exe&quot; }&#xA;directives files:write files:permissions files:delete files:attribute files:create &#xA;}"/>
+<Setting name="CreationDate" value="2016-10-11T21:22:02.353-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Typically used in the MiTRE ATT&amp;CK matrix for persistence and Privilege Escalation&#xA;&#xA;The Windows Accessibility Features are tools in Windows that allow users, especially those with disabilities, to have an easier experience. They consist of features like:&#xA;&#xA;- Magnifier&#xA;- On Screen Keyboard&#xA;- Narrator (text-to-speech)&#xA;- Personalization (Changing default colors and sounds)&#xA;- Default text size&#xA;- Speech Recognition&#xA;- Sticky Keys&#xA;&#xA;There are vulnerabilities associated with these features, although they mostly exist in older Windows versions, and generally require physical or Remote Desktop Protocol (RDP) access."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-16T05:45:35.726-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Accessibility Feature Alteration"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4059"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_9" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_20" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
 <Setting name="CreatorID" value="McAfee"/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-20T19:11:34.236-04:00"/>
+<Setting name="LastModifyDate" value="2016-11-23T07:25:48.604-05:00"/>
 <Setting name="ModCreateLocalExStatus" value="1"/>
-<Setting name="ModSeverityLevel" value="4"/>
+<Setting name="ModSeverityLevel" value="0"/>
 <Setting name="Name" value="Generic Application Hooking Protection"/>
 <Setting name="Note" value=""/>
 <Setting name="SignatureID" value="6010"/>
@@ -292,78 +410,117 @@
 <Setting name="_SigRule" value="0"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_0" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_4" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;USB Rule&quot;&#xA;Class Files&#xA;Id 4021&#xA;level 3&#xA;files {Include &quot;*&quot;}&#xA;Executable {Include &quot;*&quot;}&#xA;user_name {Include &quot;*&quot;}&#xA;drive_type { Include &quot;OtherRemovable&quot; }&#xA;directives files:read&#xA;}"/>
-<Setting name="CreationDate" value="2016-09-11T23:32:54.673-04:00"/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Program with Exception&quot;&#xA;Class Program&#xA;Id 4044&#xA;level 3&#xA;Target_Executable { Include { -path &quot;C:\\_Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe&quot; } \&#xA;{ -path &quot;C:\\_Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe&quot; }&#xA;}&#xA;user_name { Exclude &quot;&lt;domain&gt;\\user&quot; }&#xA;directives program:open_with_any program:run &#xA;}"/>
+<Setting name="CreationDate" value="2016-09-11T22:56:31.725-04:00"/>
 <Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Triggers on removable media being attached to the system. Data Loss Prevention (DLP) is a&#xA;better fit for this but in the absence of it, this will do the job."/>
+<Setting name="Description" value="Triggers on a specific program execution with the exception of a specified user."/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:43:31.460-04:00"/>
+<Setting name="LastModifyDate" value="2016-11-23T07:43:14.563-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Removable Media"/>
+<Setting name="Name" value="__Program Execution with the Execption of a Specific User"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4021"/>
+<Setting name="SignatureID" value="4044"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_25" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_38" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;New service created&quot;&#xA;Class Services&#xA;Id 4008&#xA;level 3&#xA;display_names { Include &quot;*&quot; }&#xA;display_names { Exclude &quot;GUPDATE&quot; }&#xA;directives services:create &#xA;}&#xA;"/>
-<Setting name="CreationDate" value="2016-03-29T22:19:39.975-04:00"/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Prefetch&quot;&#xA;Class Files&#xA;Id 4064&#xA;level 3&#xA;files { Include &quot;c:\\windows\\prefetch\\*.pf&quot; }&#xA;directives files:write files:permissions files:create &#xA;}"/>
+<Setting name="CreationDate" value="2016-10-11T21:22:02.353-04:00"/>
 <Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Triggers on a new service being created"/>
+<Setting name="Description" value="Triggers on any application execution on the system, which is stored in C:\Windows\Prefetch."/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:48:04.839-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-16T05:48:40.026-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__New Service Created"/>
+<Setting name="Name" value="__Prefetch Addition"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4008"/>
+<Setting name="SignatureID" value="4064"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_20" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_2" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;iTunes execution&quot;&#xA;Class Program&#xA;Id 4009&#xA;level 3&#xA;Target_Executable { Include { -path &quot;*\\itunes.exe&quot; -hash&#xA;&quot;A8D590ADE72D06723BE0701842008BD5&quot; -sdn &quot;*&quot; }&#xA;}&#xA;directives program:run &#xA;}&#xA;"/>
-<Setting name="CreationDate" value="2016-03-29T22:32:11.296-04:00"/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;UAC Disabled&quot;&#xA;Class Registry&#xA;Id 4073&#xA;level 3&#xA;values { Include &quot;\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\EnableLUA&quot; }&#xA;&#xA;directives registry:modify&#xA;}&#xA;&#xA;"/>
+<Setting name="CreationDate" value="2016-03-10T21:27:00.503-05:00"/>
 <Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Hits on a specific program with a specific hash."/>
+<Setting name="Description" value="Triggers on UAC being disabled in the Registry."/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:48:47.164-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-17T07:29:15.334-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Program Execution with a Specific Hash"/>
+<Setting name="Name" value="__Disabled UAC (Registry)"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4009"/>
+<Setting name="SignatureID" value="4073"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_23" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_6" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;File Protection&quot;&#xA;Class Files&#xA;Id 4022&#xA;level 3&#xA;files { Include &quot;c:\\windows\\system32\\*&quot; }&#xA;directives files:rename files:write files:delete files:attribute&#xA;}"/>
-<Setting name="CreationDate" value="2016-09-11T23:43:37.486-04:00"/>
-<Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Triggers on anything in System32 bring renamed, written to, or deleted."/>
+<Setting name="CreatorID" value="McAfee"/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:47:36.803-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-19T05:54:14.278-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
-<Setting name="Name" value="__Changes to System32"/>
+<Setting name="Name" value="Powershell Command Restriction - EncodedCommand"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4022"/>
+<Setting name="SignatureID" value="6087"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_15" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="CreatorID" value="McAfee"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-19T05:54:38.204-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="Powershell Command Restriction - NoLogo"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="6084"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_18" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="CreatorID" value="McAfee"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-02-23T16:39:32.366-05:00"/>
+<Setting name="ModSeverityLevel" value="4"/>
+<Setting name="Name" value="Double File Extension Execution"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="412"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_28" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Unsigned Executable in c:\windows\*&quot;&#xA;Class Program&#xA;Id 4056&#xA;level 3&#xA;Target_Executable { Include { -path &quot;C:\\Windows\\*&quot; -sdn &quot;*&quot; } &#xA;}&#xA;Target_Executable { Exclude { -path &quot;C:\\Windows\\*&quot; -sdn &quot;*CN*&quot; } &#xA;&#xA;}&#xA;directives program:open_with_any program:run &#xA;}&#xA;&#xA; &#xA; "/>
+<Setting name="CreationDate" value="2016-09-27T22:04:49.433-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Hits on unsigned .exe executing within System32"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-19T12:08:24.659-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Unsigned Target Executable Execution in C:\Windows\*"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4056"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_8" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_3" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";	Rule {&#xA;		tag &quot;Application_Hooking&quot;&#xA;		Class Hook&#xA;		Id 4030&#xA;		level 0&#xA;		application { Include &quot;*&quot; }&#xA;		Executable {Exclude { -sdn {&quot;*CN*&quot;} } }&#xA;		user_name { Exclude &quot;NT AUTHORITY\\SYSTEM&quot; &quot;NT Authority\\LOCAL SERVICE&quot; &quot;NT Authority\\NETWORK SERVICE&quot; }&#xA;		directives -c -d hook:set_windows_hook &#xA;}"/>
+<Setting name="+SigRule#0" value="; Rule {&#xA;  tag &quot;Application_Hooking&quot;&#xA;  Class Hook&#xA;  Id 4030&#xA;  level 3&#xA;  application { Include &quot;*&quot; }&#xA;  user_name { Exclude &quot;NT AUTHORITY\\SYSTEM&quot; &quot;NT Authority\\LOCAL SERVICE&quot; &quot;NT Authority\\NETWORK SERVICE&quot; }&#xA;  directives hook:set_windows_hook &#xA;}"/>
 <Setting name="CreationDate" value="2016-09-20T19:41:58.066-04:00"/>
 <Setting name="CreatorID" value="admin"/>
 <Setting name="Description" value="Application Hooking"/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-28T07:39:59.608-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-19T11:00:05.779-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
 <Setting name="Name" value="__Application Hooking"/>
 <Setting name="Note" value=""/>
@@ -372,62 +529,229 @@
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
-<EPOPolicySettings name="HIPS_IPSSigWindows_27" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<EPOPolicySettings name="HIPS_IPSSigWindows_25" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Mounted Drives&quot;&#xA;Class Registry&#xA;Id 4042&#xA;level 3&#xA;values { Include &quot;\\REGISTRY\\CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MountPoints2\\*&quot; }&#xA;directives registry:create registry:modify&#xA;}"/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Remote Registry Started&quot;&#xA;Class Services&#xA;Id 4065&#xA;level 3&#xA;services { Include &quot;remoteregistry&quot; }&#xA;directives services:start &#xA;}&#xA;"/>
+<Setting name="CreationDate" value="2016-03-29T22:19:39.975-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on the Remote Registry Service being started"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-16T16:12:21.186-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Remote Registry Service Started"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4065"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_17" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="CreatorID" value="McAfee"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-19T05:54:56.422-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="Mimikatz usage"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="6078"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="0"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_29" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Mounted Drives&quot;&#xA;Class Registry&#xA;Id 4054&#xA;level 3&#xA;values { Include &quot;\\REGISTRY\\CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MountPoints2\\#*&quot; }&#xA;directives registry:create registry:modify&#xA;}"/>
 <Setting name="CreationDate" value="2016-03-10T21:27:00.503-05:00"/>
 <Setting name="CreatorID" value="admin"/>
 <Setting name="Description" value="Triggers on any drives being mounted."/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:46:38.954-04:00"/>
+<Setting name="LastModifyDate" value="2016-12-16T07:56:49.260-05:00"/>
 <Setting name="ModSeverityLevel" value="3"/>
 <Setting name="Name" value="__Mounted Drives"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4042"/>
+<Setting name="SignatureID" value="4054"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_7" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;&quot;&#xA;Class Files&#xA;Id 4023&#xA;level 3&#xA;files { Include &quot;*\\evil.exe&quot; }&#xA;directives files:rename files:write files:delete files:attribute&#xA;}"/>
+<Setting name="CreationDate" value="2016-09-11T23:56:02.898-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on a specific program anywhere on the system being written to disk, deleted, or renamed."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-09-30T19:59:43.963-04:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Program downloaded, deleted, or renamed anywhere on System"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4023"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_36" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;UAC Invoked&quot;&#xA;Class Program&#xA;Id 4048&#xA;level 3&#xA;Target_Executable { Include { -path &quot;C:\\Windows\\System32\\consent.exe&quot; }&#xA;}&#xA;directives program:open_with_any program:run &#xA;}"/>
+<Setting name="CreationDate" value="2016-09-30T19:49:59.101-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on UAC being invoked."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-16T05:44:59.487-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__UAC Invoked"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4048"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_16" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;New service created&quot;&#xA;Class Services&#xA;Id 4008&#xA;level 3&#xA;display_names { Include &quot;*&quot; }&#xA;display_names { Exclude &quot;GUPDATE&quot; }&#xA;directives services:create &#xA;}&#xA;"/>
+<Setting name="CreationDate" value="2016-03-29T22:19:39.975-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on a new service being created"/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-11-23T12:26:09.405-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__New Service Created"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4008"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_SigRule" value="1"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_32" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+AppId#0" value="a4f315eb-689c-4bae-8b53-c4ebedd98140"/>
+<Setting name="+AppId#1" value="eb0e54fd-96b5-47dd-b272-eb329286c66a"/>
+<Setting name="+AppId#10" value="259c3a47-0007-4fb6-b6e9-62a032425ab4"/>
+<Setting name="+AppId#11" value="f1c2a0f6-21d8-406e-9cf0-5c7c6bbe4f9a"/>
+<Setting name="+AppId#12" value="16ef720e-09fa-4dc5-8b98-3a2e9676d541"/>
+<Setting name="+AppId#2" value="5e681146-f379-4c82-bb13-3467201550c2"/>
+<Setting name="+AppId#3" value="24d7299a-8bc3-4549-84a0-ebc65febb372"/>
+<Setting name="+AppId#4" value="3bde4899-e775-49b5-be1d-d95686608e21"/>
+<Setting name="+AppId#5" value="4e994c1c-7176-4037-b742-324b96b99ae8"/>
+<Setting name="+AppId#6" value="3e661c0b-a0ed-480c-b48f-2736aec612c5"/>
+<Setting name="+AppId#7" value="28512cd7-79ce-4608-9e19-5fda37c19cf4"/>
+<Setting name="+AppId#8" value="a30d80f8-4c5b-4fae-85d7-4fd6c6e12179"/>
+<Setting name="+AppId#9" value="b3a9104c-aa38-4d21-8e19-4d64a0cd2fa7"/>
+<Setting name="+AppName#0" value="BAT"/>
+<Setting name="+AppName#1" value="BAT2"/>
+<Setting name="+AppName#10" value="VB2"/>
+<Setting name="+AppName#11" value="VBS"/>
+<Setting name="+AppName#12" value="Everything"/>
+<Setting name="+AppName#2" value="DLLs"/>
+<Setting name="+AppName#3" value="DLLs2"/>
+<Setting name="+AppName#4" value="EXEs"/>
+<Setting name="+AppName#5" value="EXEs2"/>
+<Setting name="+AppName#6" value="Java"/>
+<Setting name="+AppName#7" value="Java2"/>
+<Setting name="+AppName#8" value="PS"/>
+<Setting name="+AppName#9" value="PS2"/>
+<Setting name="+AppNote#0" value=""/>
+<Setting name="+AppNote#1" value=""/>
+<Setting name="+AppNote#10" value=""/>
+<Setting name="+AppNote#11" value=""/>
+<Setting name="+AppNote#12" value=""/>
+<Setting name="+AppNote#2" value=""/>
+<Setting name="+AppNote#3" value=""/>
+<Setting name="+AppNote#4" value=""/>
+<Setting name="+AppNote#5" value=""/>
+<Setting name="+AppNote#6" value=""/>
+<Setting name="+AppNote#7" value=""/>
+<Setting name="+AppNote#8" value=""/>
+<Setting name="+AppNote#9" value=""/>
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;User Temp&quot;&#xA;Class Files&#xA;Id 4078&#xA;level 0&#xA;files { Include &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*.bat&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*\\*.bat&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*.dll&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*\\*.dll&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*.exe&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*\\*.exe&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*.js*&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*\\*.js&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*.ps*&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*\\*.ps*&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*\\*.vb*&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*.vb*&quot; }&#xA;files { Exclude &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*&quot; &quot;C:\\Users\\*\\AppData\\Local\\Temp\\*\\*&quot;  }&#xA;directives files:write files:create files:read&#xA;}&#xA;&#xA;"/>
+<Setting name="+SigRule#1" value=";Rule {&#xA;tag &quot;System Temp folder&quot;&#xA;Class Files&#xA;Id 4078&#xA;level 0&#xA;files { Include &quot;*\\temp\\*&quot; }&#xA;files { Exclude &quot;C:\\WINDOWS\\assembly\\NativeImages_v2.0.50727_32\\Temp\\* &quot; }&#xA;directives files:write files:create files:rename&#xA;}"/>
+<Setting name="+SigRule#2" value="Rule {&#xA;tag &quot;Temp Folder Protection&quot;&#xA;Class Program&#xA;Id 4078&#xA;level 0&#xA;Target_Executable { Include { -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;.bat&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;\\&amp;.bat&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;.dll&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;\\&amp;.dll&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;.exe&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;\\&amp;.exe&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;.js&amp;&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;\\&amp;.js&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;.ps&amp;&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;\\&amp;.ps&amp;&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;\\&amp;.vb&amp;&quot; } \&#xA;{ -path &quot;C:\\Users\\&amp;\\AppData\\Local\\Temp\\&amp;.vb&amp;&quot; }&#xA;}&#xA;Target_Executable { Exclude { -path &quot;*\\&amp;&quot; }&#xA;}&#xA;directives program:open_with_create_thread program:run &#xA;}&#xA;"/>
+<Setting name="CreationDate" value="2016-09-11T23:43:37.486-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Triggers on anything executed in the Temp directory."/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-20T12:45:32.719-05:00"/>
+<Setting name="ModSeverityLevel" value="0"/>
+<Setting name="Name" value="__Open Files from Temp Folder"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4078"/>
+<Setting name="SignatureTypeID" value="1"/>
+<Setting name="_AppId" value="13"/>
+<Setting name="_AppName" value="13"/>
+<Setting name="_AppNote" value="13"/>
+<Setting name="_SigRule" value="3"/>
+</Section>
+</EPOPolicySettings>
+<EPOPolicySettings name="HIPS_IPSSigWindows_21" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
+<Section name="2">
+<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Unsigned Executable&quot;&#xA;Class Program&#xA;Id 4076&#xA;level 3&#xA;Executable { Include { -path &quot;C:\\*&quot; -sdn &quot;*&quot; } &#xA;}&#xA;Executable { Exclude { -path &quot;c:\\*&quot; -sdn &quot;*CN*&quot; } \&#xA;{ -path &quot;C:\\PROGRAM FILES\\WINDOWSAPPS\\*.exe&quot; } \&#xA;{ -path &quot;C:\\Program Files (x86)\\USAF\\ACCM\\ACCM_LPC.exe&quot; } \&#xA;{ -path &quot;C:\\PROGRAM FILES (X86)\\COMMON FILES\\MACROVISION SHARED\\FLEXNET PUBLISHER\\FNPLICENSINGSERVICE.EXE&quot; }&#xA;}&#xA;directives program:open_with_any program:run &#xA;}&#xA;"/>
+<Setting name="CreationDate" value="2016-09-27T22:04:49.433-04:00"/>
+<Setting name="CreatorID" value="admin"/>
+<Setting name="Description" value="Hits on unsigned Executable executing on the filesystem. For example, If you use Windows Explorer (explorer.exe) to open Notepad (notepad.exe), explorer.exe is the Executable while notepad.exe is the Target_Executable "/>
+<Setting name="LastModifierID" value="admin"/>
+<Setting name="LastModifyDate" value="2016-12-19T12:08:41.231-05:00"/>
+<Setting name="ModSeverityLevel" value="3"/>
+<Setting name="Name" value="__Unsigned Executable Execution Anywhere"/>
+<Setting name="Note" value=""/>
+<Setting name="SignatureID" value="4076"/>
 <Setting name="SignatureTypeID" value="1"/>
 <Setting name="_SigRule" value="1"/>
 </Section>
 </EPOPolicySettings>
 <EPOPolicySettings name="HIPS_IPSSigWindows_24" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" typeid="IPS_Rules" param_int="2" param_str="">
 <Section name="2">
-<Setting name="+SigRule#0" value=";Rule {&#xA;tag &quot;Blocked Access for Mr. X&quot;&#xA;Class Files&#xA;Id 4020&#xA;level 1&#xA;user_name { Include &quot;&lt;domain&gt;\\admin&quot; }&#xA;files { Include &quot;*&quot; }&#xA;directives files:execute files:rename files:write files:delete files:read files:attribute files:create &#xA;}&#xA;"/>
-<Setting name="CreationDate" value="2016-04-03T00:55:08.706-04:00"/>
-<Setting name="CreatorID" value="admin"/>
-<Setting name="Description" value="Blocks all a specific user&apos;s actions on a system. This is a decent containment method.&#xA;"/>
+<Setting name="CreatorID" value="McAfee"/>
 <Setting name="LastModifierID" value="admin"/>
-<Setting name="LastModifyDate" value="2016-09-30T19:47:07.933-04:00"/>
-<Setting name="ModSeverityLevel" value="4"/>
-<Setting name="Name" value="__Block Specific User&apos;s Actions"/>
+<Setting name="LastModifyDate" value="2016-09-27T22:31:01.514-04:00"/>
+<Setting name="ModSeverityLevel" value="1"/>
+<Setting name="Name" value="Access Protection - Prevent all programs from running files from the Temp folder"/>
 <Setting name="Note" value=""/>
-<Setting name="SignatureID" value="4020"/>
+<Setting name="SignatureID" value="3905"/>
 <Setting name="SignatureTypeID" value="1"/>
-<Setting name="_SigRule" value="1"/>
+<Setting name="_SigRule" value="0"/>
 </Section>
 </EPOPolicySettings>
 <EPOPolicyObject name="Custom_HIPs_Rules" featureid="HOSTIPS_8000_IPS" categoryid="IPS_Rules" serverid="MLD-EPO" editflag="0" typeid="IPS_Rules">
-<description></description><PolicySettings>HIPS_IPSSigWindows_28</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_11</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_7</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_13</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_2176</PolicySettings>
-<PolicySettings>Windows:VMware Workstation Core Envelope - File Modification:1ca604de-8cd7-4669-acc4-da728a1d1bb9</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_22</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_6</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_16</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_14</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_21</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_5</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_1</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_17</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_26</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_30</PolicySettings>
+<description></description><PolicySettings>HIPS_IPSSigWindows_22</PolicySettings>
 <PolicySettings>HIPS_IPSSigWindows_9</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_0</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_25</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_20</PolicySettings>
 <PolicySettings>HIPS_IPSSigWindows_23</PolicySettings>
-<PolicySettings>HIPS_IPSSigWindows_8</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_11</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_13</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_35</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_5</PolicySettings>
+<PolicySettings>Windows:Mounted Drives Exception:3e0adb74-be11-4f6e-a80b-0f2544216249</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_12</PolicySettings>
+<PolicySettings>Windows:VMware Workstation Core Envelope - File Modification:1ca604de-8cd7-4669-acc4-da728a1d1bb9</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_1</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_37</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_26</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_34</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_19</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_31</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_33</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_0</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_10</PolicySettings>
 <PolicySettings>HIPS_IPSSigWindows_27</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_30</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_8</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_14</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_20</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_4</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_38</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_2</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_6</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_15</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_18</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_28</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_3</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_25</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_17</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_29</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_7</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_36</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_16</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_32</PolicySettings>
+<PolicySettings>HIPS_IPSSigWindows_21</PolicySettings>
 <PolicySettings>HIPS_IPSSigWindows_24</PolicySettings>
 </EPOPolicyObject>
 </epo:EPOPolicySchema>
