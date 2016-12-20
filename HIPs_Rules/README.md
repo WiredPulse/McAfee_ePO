@@ -3,12 +3,16 @@ Download the McAfee_ePO repository as a whole versus using the copy and paste me
 <br><br>
 
 # Importing Rules:
-1) Download the McAfee_ePO repository
-2) Unzip the respository
+1) Download the McAfee_ePO repository<br>
+2) Unzip the respository<br>
 3) Navigate and log into the McAfee ePO web console<br>
 4) Click Menu -> Policy -> Policy Catalog<br>
-5) Click 'Import'
-6) Click 'Coose' and navigate to the 
+5) Click 'Import'<br>
+6) Click 'Choose'and select the Custom_HIPS_Rules.xml file within the McAfee_ePO-master\HIPs_Rules folder <br>
+7) Click OK twice<br>
+8) Click on the entry labeled "Custom_HIPs_Rules"<br>
+9) Under the 'Type' dropdown at the top of the screen, select 'Custom'<br>
+10) The custom rules are shown. From here you can adjust them as you see fit. Once done, add the newly add Custom_HIPs_Rules policy to a container within System Tree.<br>
 
 <br><br>
 # Rule Contents and Descriptions:
