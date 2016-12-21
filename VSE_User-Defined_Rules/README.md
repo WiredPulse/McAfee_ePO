@@ -16,7 +16,7 @@ Download the McAfee_ePO repository as a whole versus using the copy and paste me
 <br>
 The custom rules are identical for Workstation and Server. No other rules are enabled but the custom ones and they are all set to log only. <br>
 
-# Rules
+# Rules:
 RDP Port Detection (Lateral Movement) <br><br>
 New Service Created (Persistence OR Priv. Escalation) <br><br>
 Removable Media Attached (C2 OR Exfil.) <br><br>
