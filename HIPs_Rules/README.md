@@ -44,4 +44,9 @@ __Open Files from Temp Folder : Triggers on any file opening in the Temp directo
 __Accessibility Feature Alteration : Triggers on alteration of sethc.exe or utilman.exe alteration within c:\windows\system32.<br><br>
 __Image File Execution Option Additions : Triggers due to a debugger entry in the Registry with no purpose of "debugging", but rather to run another program instead (likely something malicious).<br><br>
 __Prefetch Addition : Triggers on any application execution on the system, which is stored in C:\Windows\Prefetch.<br><br>
+__Process Dump : Triggers on a process dump being created for any process.<br><br>
+__VBS Execution : Triggers VBS execution (cscript.exe or wscript.exe).<br><br>
+__MSHTA.exe Execution : Triggers on a MSHTA.exe execution. Which is used to run HTA files. HTA is short for HTML Application, which are programs based on HTML and one or more scripting languages supported by Internet Explorer, usually VBScript or JScript. The default file-association for the .hta extension is the Microsoft HTML Application Host (mshta.exe).<br><br>
+__PowerShell Profile Addition : Triggers on a profile being added which could be malicious.<br><br>
+__Disabling Volume Shadow Copy Service : Triggers on VSS being disabled.<br><br>
 
