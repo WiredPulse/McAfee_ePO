@@ -63,3 +63,8 @@ Prefetch Watch (Execution) <br><br>
 NTP Server Change (Defense Evasion) <br><br>
 Service Startup Mode Change (Persistence OR Priv. Escalation) <br><br>
 Disable UAC (Priv. Escalation OR Defense Evasion) <br><br>
+VBS Use (Host Enumeration OR Lateral Movement) <br><br>
+Data in $recycle.bin (exfil.) <br><br>
+MSHTA.exe execution (Lateral Movement OR Execution)<br><br>
+Disabling Volume Shadow Copy Service (Defense Evasion)<br><br>
+PowerShell Profile Addition (Persistence)<br><br>
