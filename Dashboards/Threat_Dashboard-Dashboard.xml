@@ -102,7 +102,7 @@
     <customExport factory="core.queryFactory">
       <query id="10">
         <dictionary id="11"/>
-        <name>05 CPT: Script Related Malware by file path</name>
+        <name>Script Related Malware by file path</name>
         <description></description>
         <target>EPOEvents</target>
         <table-uri>query:table?orion.table.columns=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.TargetFileName%3AEPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken%3AEPOEvents.AnalyzerDATVersion&amp;orion.table.order=az&amp;orion.table.order.by=EPOEvents.DetectedUTC%3AEPOEvents.TargetHostName%3AEPOEvents.ThreatName%3AEPOEvents.TargetFileName%3AEPOEvents.AnalyzerDetectionMethod%3AEPOEvents.ThreatActionTaken%3AEPOEvents.AnalyzerDATVersion</table-uri>
